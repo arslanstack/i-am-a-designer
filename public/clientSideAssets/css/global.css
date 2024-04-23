@@ -1,0 +1,732 @@
+@font-face {
+  font-family: "Georgia";
+  src: url("./clientSideAssets/fonts/Georgia.ttf") format("ttf");
+}
+
+* {
+  font-family: "Georgia";
+}
+
+/* Navbar Styling Start */
+.navbar {
+  background-color: rgba(252, 252, 252, 0.6);
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-scrolled {
+  background-color: #f8f8f8;
+  transition-duration: 0.3s;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-nav li a {
+  font-weight: 500 !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+/* Navbar Styling End */
+
+
+
+/* Hero Update Start */
+
+.carousel-caption {
+  position: absolute;
+  left: 10% !important;
+  top: 30%;
+  text-align: left !important;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  width: 100%;
+}
+
+.carousel-inner {
+  position: relative;
+}
+
+.carousel-indicators .active {
+  background-color: black !important;
+}
+
+.carousel-indicators button {
+  background-color: black !important;
+  height: 10px !important;
+  width: 10px !important;
+  border-radius: 60% !important;
+  z-index: 999 !important;
+}
+
+.carousel-indicators {
+  z-index: 999 !important;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  /* Adjust opacity as needed */
+  z-index: 1;
+  /* Ensure overlay is above the image */
+}
+
+.carousel-caption {
+  z-index: 2;
+  /* Ensure caption is above the overlay */
+}
+
+/* Hero Updated End */
+
+/* hero Start */
+.hero {
+  /* padding-top: 180px; */
+}
+
+.hero-outer {
+  background-color: #f7f7f7;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 400;
+  color: rgb(117, 90, 10);
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: 50px;
+  line-height: 60px;
+  font-weight: 700;
+  /* color: #212121; */
+  text-transform: capitalize;
+  margin-bottom: 16px;
+}
+
+.hero small {
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #3a3636;
+
+  text-transform: capitalize;
+}
+
+.hero small span {
+  font-size: 18px;
+  line-height: 18px;
+  color: #c09578;
+  font-weight: 700;
+  margin-left: 8px;
+  text-transform: capitalize;
+}
+
+.hero button {
+  background: transparent;
+  box-shadow: none;
+  color: #000000;
+  text-transform: uppercase;
+  font-size: 14px;
+  /* border-radius: 30px; */
+  border: none;
+  font-weight: 500;
+  line-height: 50px;
+  position: relative;
+}
+
+@keyframes moveButton {
+  0% {
+    transform: translateX(0);
+    /* Start position */
+  }
+
+  50% {
+    transform: translateX(3px);
+    /* Move right */
+  }
+
+  100% {
+    transform: translateX(0);
+    /* Back to start position */
+  }
+}
+
+.hero button svg {
+  vertical-align: middle;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  /* Smooth transition */
+  margin-top: -5px;
+}
+
+.carousel-control-prev {
+  display: none !important;
+}
+
+.carousel-control-next {
+  display: none !important;
+}
+
+/* Add animation to SVG on button hover */
+.hero button:hover svg {
+  animation: moveButton 0.8s infinite;
+  /* Apply animation infinitely */
+}
+
+/* hero End */
+
+/* Inspiring Image Start */
+.section-heading h1 {
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: 400;
+}
+
+.inspiring-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.inspiring-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inspiring-text span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #0d0c22;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(180deg,
+      transparent 20.91%,
+      rgba(0, 0, 0, 0.6) 75.88%);
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0;
+  /* Initially hidden */
+  transform: translateY(100%);
+  /* Start position: below the image */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  /* Transition for opacity and transform */
+}
+
+.inspiring-image:hover .image-overlay {
+  opacity: 1;
+  /* Show overlay on hover */
+  transform: translateY(0);
+  /* Slide up to show text */
+}
+
+.inspiring-text .badge {
+  font-size: 10px !important;
+  padding: 0 5px !important;
+  text-transform: uppercase;
+  background-color: #ccc !important;
+}
+
+.inspiring-text .amount {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+
+  color: #3d3d4e;
+}
+
+.heart:hover {
+  fill: red;
+  cursor: pointer;
+  border: none !important;
+  stroke: red !important;
+}
+
+/* Inspiring Image End */
+
+/* Destination Start */
+
+.destination {
+  background-color: #fbda79;
+}
+
+.destination h1 {
+  font-size: 64px;
+  line-height: 72px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: #0d0c22;
+}
+
+.destination p {
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 36px;
+  color: #0d0c22;
+}
+
+.destination .started {
+  background-color: #0d0c22;
+  color: #ffffff;
+  border: none;
+  padding: 16px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.destination .learn {
+  color: #0d0c22;
+  background-color: #ffffff;
+  border: none;
+  padding: 16px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.destination .started:hover {
+  opacity: 0.8;
+}
+
+.destination .learn:hover {
+  opacity: 0.8;
+}
+
+/* Destination End */
+
+/* Team Card Start */
+
+.card-img-overlay-text {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  padding: 0 10px;
+  color: white;
+  background: linear-gradient(180deg,
+      transparent 20.91%,
+      rgba(0, 0, 0, 0.4) 75.88%);
+}
+
+.team {
+  border-radius: 26px !important;
+  overflow: hidden;
+  height: 400px !important;
+  width: 300px;
+}
+
+.team img {
+  object-fit: cover !important;
+  width: 100%;
+  height: 100%;
+}
+
+.team p {
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.team small {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.team button {
+  font-size: 11px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  border-radius: 30px;
+  padding: 3px 8px;
+}
+
+.team button:hover {
+  color: black;
+  background-color: white;
+}
+
+.team button:hover svg {
+  fill: black !important;
+}
+
+/* Team Card End */
+
+/* Footer Start */
+.footer-links li a {
+  font-size: 12px !important;
+  margin: 0px 14px;
+}
+
+.footer-links li {
+  margin: 14px 0;
+}
+
+.lower-links {
+  font-size: 14px;
+  color: #6e6d7a;
+}
+
+.lower-links a {
+  font-size: 14px;
+  color: #6e6d7a;
+}
+
+.lower-links a:hover {
+  color: #6e6d7a !important;
+}
+
+.footer-social {
+  justify-content: end;
+}
+
+/* Footer End */
+
+/* For Small Screen */
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    padding-top: 0px;
+    text-align: center;
+
+  }
+
+  .overlay {
+    background-color: #f6f6f6 !important;
+  }
+
+  .navbar {
+    background-color: #f6f6f6 !important;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+    margin-bottom: 0 !important;
+  }
+
+  .carousel-item img {
+    height: 65vh;
+    object-fit: cover;
+
+
+  }
+
+  .hero p {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 0 !important;
+  }
+
+  .hero small {
+    font-size: 12px !important;
+  }
+
+  .section-heading h1 {
+    font-size: 36px;
+  }
+
+  .destination h1 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .destination p {
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .team {
+    height: 300px !important;
+    width: 250px;
+  }
+
+  .footer-middle {
+    justify-content: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-image {
+    margin: auto !important;
+  }
+
+  .wrap-slider {
+    height: 350px !important;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    left: 0% !important;
+    top: 20%;
+    text-align: left !important;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    width: 100%;
+  }
+
+  .search input {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .footer-links li a {
+    font-size: 11px !important;
+    margin: 0px 10px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .footer-links li a {
+    font-size: 14px !important;
+    margin: 0px 14px;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .footer-links li a {
+    font-size: 10px !important;
+    margin: 0px 10px;
+  }
+}
+
+/* Masonary Start */
+
+/* Reset CSS */
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* Main CSS */
+.grid-wrapper>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-wrapper>div>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
+}
+
+.grid-wrapper .wide {
+  grid-column: span 2;
+}
+
+.grid-wrapper .tall {
+  grid-row: span 2;
+}
+
+.grid-wrapper .big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Masonary End */
+
+.wrap-slider {
+  width: 100%;
+  overflow: hidden;
+  height: 500px;
+  position: relative;
+}
+
+.wrap-slider ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: flex;
+  flex-direction: row;
+  will-change: transform;
+}
+
+.wrap-slider ul li {
+  padding: 10px;
+}
+
+.wrap-slider ul li a {
+  display: block;
+  padding: 50px;
+  white-space: nowrap;
+  background: rgba(255, 0, 0, 0.8);
+  color: rgba(0, 0, 255, 0.9);
+  text-decoration: none;
+  transition: background 0.3s ease-in, color 0.3s ease-out;
+  will-change: color, background;
+}
+
+
+
+/* Designer Styling Start */
+
+.designer-card .logo img {
+  border-radius: 60px;
+}
+
+.tags .accept {
+  background-color: rgba(99, 163, 117, 0.1) !important;
+  border: 1px solid rgba(77, 170, 87, 0.15);
+  color: #63a375;
+  border-radius: 30px;
+  font-size: 10px !important;
+}
+
+.tags .pro {
+  background-color: rgba(243, 175, 228, 0.25) !important;
+  border: 1px solid rgba(243, 175, 228, 0.5);
+  color: #b8509a;
+  border-radius: 30px;
+  font-size: 10px !important;
+}
+
+.designer-card .card-body .designer-image {
+
+  height: 200px;
+  overflow: hidden;
+}
+
+.designer-card .card-body .designer-image img {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+}
+
+.search button {
+  background-color: #000000 !important;
+  color: white !important;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+}
+
+.search input {
+  font-size: 20px;
+  border: none !important;
+}
+
+.search input:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.search .top-search {
+  border: 1px solid black;
+  /* padding: 3px 6px; */
+  border-radius: 60px;
+}
+
+.signin button {
+  background-color: #000000 !important;
+  color: white !important;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+}
+
+.logo-signin {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+}
+
+.signin .card {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.profile {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  border-radius: 60%;
+
+}
+
+#grid h5 {
+  font-size: 14px !important;
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none !important;
+}
+
+#grid p {
+  font-size: 12px !important;
+  color: #666;
+}
+
+.designer-card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+#grid li:hover {
+
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transform: scale(0.9);
+
+}
+
+#grid li a:hover {
+  cursor: context-menu !important;
+
+}
+
+.nav-link {
+  color: #000000 !important;
+}
+
+.nav-item .active {
+  font-weight: 500;
+  border: none !important;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+  border: none !important;
+}
+
+.nav-link:focus-visible {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
