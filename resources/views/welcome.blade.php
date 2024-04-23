@@ -15,6 +15,7 @@
 <body>
     <!-- Navbar Start -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="overlay"></div>
         <div class="container">
             <a class="navbar-brand" href="{{route('welcome')}}" style="width: 100px"><img src="./clientSideAssets/images/logo.png" width="100%" alt="" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

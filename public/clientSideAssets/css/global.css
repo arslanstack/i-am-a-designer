@@ -9,17 +9,23 @@
 
 /* Navbar Styling Start */
 .navbar {
-  background-color: rgba(252, 252, 252, 0.6);
+  /* background-color: rgba(252, 252, 252, 0.6); */
+  background-color: #f6f6f6 !important;
   transition: 0.3s ease-in-out;
 }
 
 .navbar-scrolled {
-  background-color: #f8f8f8;
+  background-color: #f8f8f8 !important;
   transition-duration: 0.3s;
   transition: 0.3s ease-in-out;
+  box-shadow: -1px 2px 3px -1px rgba(46, 45, 45, 0.78);
 }
 
-.navbar-nav li a {
+.navbar-nav li a,
+.navbar-brand,
+.navbar-toggler {
+  z-index: 99999 !important;
+  position: relative;
   font-weight: 500 !important;
 }
 
@@ -408,10 +414,6 @@
   }
 
   .overlay {
-    background-color: #f6f6f6 !important;
-  }
-
-  .navbar {
     background-color: #f6f6f6 !important;
   }
 
