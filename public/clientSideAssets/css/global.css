@@ -179,7 +179,7 @@
 }
 
 /* Add animation to SVG on button hover */
-.hero button:hover svg {
+.hero a:hover svg {
   animation: moveButton 0.8s infinite;
   /* Apply animation infinitely */
 }
@@ -652,6 +652,10 @@ img {
   border-radius: 60px;
 }
 
+.search .top-search button:hover {
+  opacity: 0.8;
+}
+
 .signin button {
   background-color: #000000 !important;
   color: white !important;
@@ -696,7 +700,23 @@ img {
 }
 
 .designer-card {
+  cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+
+.designer-card:hover {
+
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transform: scale(1.1);
+
+}
+
+#grid li {
+  transition: 0.3s;
+  transform: scale(1);
 }
 
 #grid li:hover {

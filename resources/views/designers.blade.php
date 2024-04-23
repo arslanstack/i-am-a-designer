@@ -14,17 +14,20 @@
     <!-- Navbar Start -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#" style="width: 100px"><img src="./clientSideAssets/images/logo.png" width="100%" alt="" /></a>
+            <a class="navbar-brand" href="{{route('welcome')}}" style="width: 100px"><img src="./clientSideAssets/images/logo.png" width="100%" alt="" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active  mx-0" aria-current="page" href="#">Find Designers</a>
+                        <a class="nav-link active  mx-0" aria-current="page" href="{{route('designers')}}">Find Designers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  mx-0" href="#">Login</a>
+                        <a class="nav-link  mx-0" aria-current="page" href="{{route('login')}}">Publish Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  mx-0" href="{{route('login')}}">Login</a>
                     </li>
                 </ul>
             </div>
@@ -76,7 +79,7 @@
 
                     <div class="card-body">
                         <div class="designer-image">
-                            <img src="https://cdn.dribbble.com/userupload/12565901/file/original-125772aa497cef4bfc0713077dbe4a9b.png?resize=400x300&vertical=center" class="card-img-top" alt="..." />
+                            <img src="./clientSideAssets/images/gal1.jpg" class="card-img-top" alt="..." />
                         </div>
                         <div class="pt-2">
                             <small class="card-text text-muted"> $50 (USD) per hour </small>
@@ -106,7 +109,7 @@
 
                     <div class="card-body">
                         <div class="designer-image">
-                            <img src="https://cdn.dribbble.com/userupload/12565901/file/original-125772aa497cef4bfc0713077dbe4a9b.png?resize=400x300&vertical=center" class="card-img-top" alt="..." />
+                            <img src="./clientSideAssets/images/gal2.jpg" class="card-img-top" alt="..." />
                         </div>
                         <div class="pt-2">
                             <small class="card-text text-muted"> $50 (USD) per hour </small>
@@ -136,7 +139,7 @@
 
                     <div class="card-body">
                         <div class="designer-image">
-                            <img src="https://cdn.dribbble.com/userupload/12565901/file/original-125772aa497cef4bfc0713077dbe4a9b.png?resize=400x300&vertical=center" class="card-img-top" alt="..." />
+                            <img src="./clientSideAssets/images/gal3.jpg" class="card-img-top" alt="..." />
                         </div>
                         <div class="pt-2">
                             <small class="card-text text-muted"> $50 (USD) per hour </small>
@@ -166,7 +169,7 @@
 
                     <div class="card-body">
                         <div class="designer-image">
-                            <img src="https://cdn.dribbble.com/userupload/12565901/file/original-125772aa497cef4bfc0713077dbe4a9b.png?resize=400x300&vertical=center" class="card-img-top" alt="..." />
+                            <img src="./clientSideAssets/images/gal4.jpg" class="card-img-top" alt="..." />
                         </div>
                         <div class="pt-2">
                             <small class="card-text text-muted"> $50 (USD) per hour </small>
@@ -196,7 +199,7 @@
 
                     <div class="card-body">
                         <div class="designer-image">
-                            <img src="https://cdn.dribbble.com/userupload/12565901/file/original-125772aa497cef4bfc0713077dbe4a9b.png?resize=400x300&vertical=center" class="card-img-top" alt="..." />
+                            <img src="./clientSideAssets/images/gal5.jpg" class="card-img-top" alt="..." />
                         </div>
                         <div class="pt-2">
                             <small class="card-text text-muted"> $50 (USD) per hour </small>
@@ -226,7 +229,7 @@
 
                     <div class="card-body">
                         <div class="designer-image">
-                            <img src="https://cdn.dribbble.com/userupload/12565901/file/original-125772aa497cef4bfc0713077dbe4a9b.png?resize=400x300&vertical=center" class="card-img-top" alt="..." />
+                            <img src="./clientSideAssets/images/gal6.jpg" class="card-img-top" alt="..." />
                         </div>
                         <div class="pt-2">
                             <small class="card-text text-muted"> $50 (USD) per hour </small>
@@ -256,7 +259,7 @@
 
                     <div class="card-body">
                         <div class="designer-image">
-                            <img src="https://cdn.dribbble.com/userupload/12565901/file/original-125772aa497cef4bfc0713077dbe4a9b.png?resize=400x300&vertical=center" class="card-img-top" alt="..." />
+                            <img src="./clientSideAssets/images/gal9.jpg" class="card-img-top" alt="..." />
                         </div>
                         <div class="pt-2">
                             <small class="card-text text-muted"> $50 (USD) per hour </small>
@@ -286,7 +289,7 @@
 
                     <div class="card-body">
                         <div class="designer-image">
-                            <img src="https://cdn.dribbble.com/userupload/12565901/file/original-125772aa497cef4bfc0713077dbe4a9b.png?resize=400x300&vertical=center" class="card-img-top" alt="..." />
+                            <img src="./clientSideAssets/images/gal10.jpg" class="card-img-top" alt="..." />
                         </div>
                         <div class="pt-2">
                             <small class="card-text text-muted"> $50 (USD) per hour </small>
@@ -372,7 +375,7 @@
                     <div class="lower-links text-lg-end text-center">
                         <a href="#" class="mx-2 text-decoration-none">Designers</a>
                         <a href="#" class="mx-2 text-decoration-none">Sitemap</a>
-                        <a href="#" class="mx-2 text-decoration-none">Made in United</a>
+                        <a href="https://arslanstack.com" class="mx-2 text-decoration-none">Made by @arslanstack</a>
                     </div>
                 </div>
             </div>

@@ -16,17 +16,20 @@
     <!-- Navbar Start -->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#" style="width: 100px"><img src="./clientSideAssets/images/logo.png" width="100%" alt="" /></a>
+            <a class="navbar-brand" href="{{route('welcome')}}" style="width: 100px"><img src="./clientSideAssets/images/logo.png" width="100%" alt="" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active  mx-0" aria-current="page" href="#">Find Designers</a>
+                        <a class="nav-link active  mx-0" aria-current="page" href="{{route('designers')}}">Find Designers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  mx-0" href="#">Login</a>
+                        <a class="nav-link  mx-0" aria-current="page" href="{{route('login')}}">Publish Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  mx-0" href="{{route('login')}}">Login</a>
                     </li>
                 </ul>
             </div>
@@ -53,11 +56,11 @@
                             Get inspired by the work of thousands of top-rated jewelry
                             designers around the world.</small>
                         <div class="mt-2">
-                            <button>
+                            <a href="{{route('designers')}}" style="color:black; text-decoration: none;">
                                 Search Now<svg width="18" height="18" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.25 18.715c0-3.003.677-5.402 2.011-7.137 1.612-2.094 4.157-3.223 7.574-3.363v-4.84l9.915 8.438-9.915 8.437v-4.812c-2.075.056-3.64.356-4.888.93-1.348.621-2.325 1.55-3.379 2.752L2.25 20.625v-1.91Z"></path>
                                 </svg>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -73,11 +76,11 @@
                         <small>
                             The world's leading brands use 'Jewels' to hire creative talent. </small>
                         <div class="mt-2">
-                            <button>
+                            <a href="{{route('designers')}}" style="color:black; text-decoration: none;">
                                 Search Now<svg width="18" height="18" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.25 18.715c0-3.003.677-5.402 2.011-7.137 1.612-2.094 4.157-3.223 7.574-3.363v-4.84l9.915 8.438-9.915 8.437v-4.812c-2.075.056-3.64.356-4.888.93-1.348.621-2.325 1.55-3.379 2.752L2.25 20.625v-1.91Z"></path>
                                 </svg>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -136,7 +139,7 @@
                                         <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
                                     </svg>
                                     <span class="amount">228</span>
-                                    <svg width="18" height="q8" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="18" height="18" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
                                         <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
                                     </svg>
@@ -182,7 +185,7 @@
                                         <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
                                     </svg>
                                     <span class="amount">228</span>
-                                    <svg width="18" height="q8" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
                                         <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
                                     </svg>
@@ -228,7 +231,7 @@
                                         <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
                                     </svg>
                                     <span class="amount">228</span>
-                                    <svg width="18" height="q8" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
                                         <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
                                     </svg>
@@ -274,7 +277,7 @@
                                         <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
                                     </svg>
                                     <span class="amount">228</span>
-                                    <svg width="18" height="q8" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
                                         <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
                                     </svg>
@@ -320,7 +323,7 @@
                                         <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
                                     </svg>
                                     <span class="amount">228</span>
-                                    <svg width="18" height="q8" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
                                         <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
                                     </svg>
@@ -366,7 +369,7 @@
                                         <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
                                     </svg>
                                     <span class="amount">228</span>
-                                    <svg width="18" height="q8" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
                                         <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
                                     </svg>
@@ -412,7 +415,7 @@
                                         <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
                                     </svg>
                                     <span class="amount">228</span>
-                                    <svg width="18" height="q8" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
                                         <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
                                     </svg>
@@ -458,7 +461,7 @@
                                         <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
                                     </svg>
                                     <span class="amount">228</span>
-                                    <svg width="18" height="q8" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
                                         <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
                                     </svg>
@@ -476,29 +479,8 @@
     <div class="container py-4">
         <div class="section-heading text-center pt-4">
             <h1>Explore, Connect & Create</h1>
-            <p class="py-2" style="font-size: 20px;">Discover the elegance of creative expression, crafted in precious metals and stones.</p>
+            <p class="py-2" style="font-size: 20px;">Express your individuality with wearable works of art.</p>
         </div>
-        <!-- <div class="grid-wrapper">
-            <div>
-                <img src="./clientSideAssets/images/gal1.jpg" alt="" />
-            </div>
-            <div>
-                <img src="./clientSideAssets/images/gal2.jpg" alt="" />
-            </div>
-            <div class="tall">
-                <img src="./clientSideAssets/images/gal3.jpg" alt="" />
-            </div>
-            <div class="wide">
-                <img src="./clientSideAssets/images/gal4.jpg" alt="" />
-            </div>
-            <div>
-                <img src="./clientSideAssets/images/gal5.jpg" alt="" />
-            </div>
-
-            <div>
-                <img src="./clientSideAssets/images/gal9.jpg" alt="" />
-            </div>
-        </div> -->
     </div>
 
     <!-- Gallery Section End -->
@@ -580,7 +562,7 @@
     <div class="container">
         <div class="section-heading text-center pt-5 pb-0">
             <h1 class="m-0">Our Featured Designers</h1>
-            <p class="py-2" style="font-size: 20px;">Discover the elegance of creative expression, crafted in precious metals and stones.</p>
+            <p class="py-2" style="font-size: 20px;">Where artistry meets elegance, one gem at a time</p>
         </div>
     </div>
 
@@ -876,7 +858,7 @@
                     <div class="lower-links text-lg-end text-center">
                         <a href="#" class="mx-2 text-decoration-none">Designers</a>
                         <a href="#" class="mx-2 text-decoration-none">Sitemap</a>
-                        <a href="#" class="mx-2 text-decoration-none">Made in United</a>
+                        <a href="https://arslanstack.com" class="mx-2 text-decoration-none">Made by @arslanstack</a>
                     </div>
                 </div>
             </div>
@@ -896,6 +878,17 @@
         });
     </script>
     <script>
+        // on clicking button with searchButton window hrf location "{{route('designers')}}"
+        const buttons = document.querySelectorAll('.redirectButton');
+
+        // Add event listener to each button
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                window.location.href = "{{route('designers')}}";
+            });
+        });
+
+
         window.onscroll = function() {
             scrollFunction();
         };
