@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jewels - Designers Portfolio Site</title>
+    <title>I am a designer</title>
     <link rel="stylesheet" href="./clientSideAssets/css/global.css" />
     <link rel="stylesheet" href="./clientSideAssets/masonary/css/component.css" />
     <script src="./clientSideAssets/masonary/js/modernizr.custom.js"></script>
     <link rel="stylesheet" href="./clientSideAssets/bootstrap-dist/css/bootstrap.min.css" />
     <script src="./clientSideAssets/bootstrap-dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="./clientSideAssets/images/symbol.png">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="overlay"></div>
         <div class="container">
-            <a class="navbar-brand" href="{{route('welcome')}}" style="width: 100px"><img src="./clientSideAssets/images/logo.png" width="100%" alt="" /></a>
+            <a class="navbar-brand" href="#" style="width: 100px"><img src="./clientSideAssets/images/logo.png" width="100%" alt="" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,9 +38,7 @@
         </div>
     </nav>
     <!-- Navbar End -->
-
     <!-- Hero Section Start -->
-
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -75,7 +74,7 @@
                         <p>Over 3 thousand ready-to-work creatives!</p>
                         <h1>Find Inspiring Designs</h1>
                         <small>
-                            The world's leading brands use 'Jewels' to hire creative talent. </small>
+                            The world's leading brands use 'I am a designer' to hire creative talent. </small>
                         <div class="mt-2">
                             <a href="{{route('designers')}}" style="color:black; text-decoration: none;">
                                 Search Now<svg width="18" height="18" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +95,6 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
     <!-- Hero Section End -->
     <!-- Inspiring Cards Start -->
     <div class="container py-5">
@@ -483,9 +481,7 @@
             <p class="py-2" style="font-size: 20px;">Express your individuality with wearable works of art.</p>
         </div>
     </div>
-
     <!-- Gallery Section End -->
-
     <!-- Masoonary Start -->
     <div class="container">
         <ul class="grid effect-1" id="grid">
@@ -538,7 +534,6 @@
 
         </ul>
     </div>
-
     <script src="./clientSideAssets/masonary/js/masonry.pkgd.min.js"></script>
     <script src="./clientSideAssets/masonary/js/imagesloaded.js"></script>
     <script src="./clientSideAssets/masonary/js/classie.js"></script>
@@ -550,15 +545,7 @@
             viewportFactor: 0.2,
         });
     </script>
-
     <!-- Masoonary End -->
-
-
-
-
-
-
-
     <!-- Team Card Start -->
     <div class="container">
         <div class="section-heading text-center pt-5 pb-0">
@@ -566,7 +553,6 @@
             <p class="py-2" style="font-size: 20px;">Where artistry meets elegance, one gem at a time</p>
         </div>
     </div>
-
     <div class="my-4">
         <div class="wrap-slider" id="js-wrapSlider">
             <ul class="js-slider">
@@ -648,7 +634,6 @@
             </ul>
         </div>
     </div>
-
     <script>
         window.requestAnimFrame = (function() {
             return (
@@ -752,8 +737,6 @@
         start();
     </script>
     <!-- Team Card End -->
-
-
     <!--Destination Section Start -->
     <div class="destination py-3">
         <div class="container py-5">
@@ -762,7 +745,7 @@
                     <div class="text-center pb-3">
                         <h1>Find Your Dream Designer Today</h1>
                         <p class="py-3">
-                            The world’s leading brands use 'Jewels' to hire creative talent.
+                            The world’s leading brands use 'I am a designer' to hire creative talent.
                             Browse thousands of top-rated designs & portfolios to find your perfect
                             creative match!
                         </p>
@@ -783,18 +766,13 @@
         </div>
     </div>
     <!-- Destination Section End -->
-
-
-
-
     <!-- Footer Start  -->
-
     <footer class="mt-3">
         <div class="container">
             <div class="row pb-4 pt-3">
                 <div class="col-lg-2 col-12">
-                    <div style="width: 120px" class="footer-image">
-                        <a class="" href="#"><img src="./clientSideAssets/images/logo.png" width="100%" alt="" /></a>
+                    <div style="width: 160px" class="footer-image">
+                        <a class="" href="{{route('welcome')}}"><img src="./clientSideAssets/images/logo.png" width="100%" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-12">
@@ -850,7 +828,7 @@
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <div class="lower-links text-lg-start text-center">
-                        <span>© 2024 Jewels Designer Portfolio</span>
+                        <span>© 2024 I am a designer</span>
                         <a href="#" class="mx-2 text-decoration-none">Terms of Service</a>
                         <a href="#" class="mx-2 text-decoration-none">Privacy Policy</a>
                     </div>
@@ -859,15 +837,12 @@
                     <div class="lower-links text-lg-end text-center">
                         <a href="#" class="mx-2 text-decoration-none">Designers</a>
                         <a href="#" class="mx-2 text-decoration-none">Sitemap</a>
-                        <a href="https://arslanstack.com" class="mx-2 text-decoration-none">Made by @arslanstack</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
     <!-- Footer End  -->
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var grid = document.querySelector(".grid");
@@ -908,5 +883,4 @@
         }
     </script>
 </body>
-
 </html>

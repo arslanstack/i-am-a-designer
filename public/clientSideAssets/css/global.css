@@ -18,7 +18,10 @@
   background-color: #f8f8f8 !important;
   transition-duration: 0.3s;
   transition: 0.3s ease-in-out;
-  box-shadow: -1px 2px 3px -1px rgba(46, 45, 45, 0.78);
+  /*box-shadow: -1px 2px 3px -1px rgba(46, 45, 45, 0.78);*/
+  box-shadow: 0px 3px 2px 0px rgba(222, 213, 213, 0.75);
+  -webkit-box-shadow: 0px 3px 2px 0px rgba(222, 213, 213, 0.75);
+  -moz-box-shadow: 0px 3px 2px 0px rgba(222, 213, 213, 0.75);
 }
 
 .navbar-nav li a,
@@ -400,6 +403,7 @@
 
 .footer-social {
   justify-content: end;
+  margin-top: 40px;
 }
 
 /* Footer End */
