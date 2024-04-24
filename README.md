@@ -16,7 +16,7 @@ git clone https://github.com/arslanstack/jewelry-designers-portfolio-site.git
 After cloning the project, navigate into the project directory and install dependencies:
 
 ```bash
-cd /ewelry-designers-portfolio-site
+cd jewelry-designers-portfolio-site
 ```
 
 ### Running the Application
@@ -24,6 +24,7 @@ cd /ewelry-designers-portfolio-site
 Start the Laravel server and compile assets:
 
 ```bash
+composer install
 php artisan serve
 ```
 
