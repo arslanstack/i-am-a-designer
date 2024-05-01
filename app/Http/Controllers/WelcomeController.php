@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class WelcomeController extends Controller
 {
     public function welcome()
     {
@@ -42,5 +42,18 @@ class HomeController extends Controller
     public function project($username, $project_id)
     {
         return view('clientviews.pages.project');
+    }
+
+    public function home()
+    {
+        if (auth()->guard('admin')->check()) {
+            return redirect()->route('admin.dashboard');
+        } elseif (auth()->guard('designer')->check()) {
+            return redirect()->route('designer.dashboard');
+        } elseif (auth()->guard('web')->check()) {
+            return redirect()->route('user.dashboard');
+        } else {
+            return redirect()->route('user.login');
+        }
     }
 }

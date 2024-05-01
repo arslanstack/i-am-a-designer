@@ -2,20 +2,38 @@
 @push('styles')
 <link rel="stylesheet" href="{{asset('/clientSideAssets/masonary/css/component.css')}}" />
 <script src="{{asset('/clientSideAssets/masonary/js/modernizr.custom.js')}}"></script>
+<style>
+    /* Navbar Styling Start */
+    .navbar {
+        /* background-color: rgba(252, 252, 252, 0.6); */
+        background-color: #ddddd5 !important;
+        transition: 0.3s ease-in-out;
+    }
+
+    .navbar-scrolled {
+        background-color: #ffffff !important;
+        transition-duration: 0.3s;
+        transition: 0.3s ease-in-out;
+        /*box-shadow: -1px 2px 3px -1px rgba(46, 45, 45, 0.78);*/
+        box-shadow: 0px 3px 2px 0px rgba(222, 213, 213, 0.75);
+        -webkit-box-shadow: 0px 3px 2px 0px rgba(222, 213, 213, 0.75);
+        -moz-box-shadow: 0px 3px 2px 0px rgba(222, 213, 213, 0.75);
+    }
+</style>
 @endpush
 @section('content')
 <!-- Slider Hero Section -->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
+        <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <div class="overlay"></div>
-            <img src="{{asset('/clientSideAssets/plugin/img/slide-img-1.jpg')}}" class="d-block w-100" alt="..." />
+            <!-- <div class="overlay"></div> -->
+            <img src="{{asset('/clientSideAssets/images/hero-new.png')}}" class="d-block w-100" alt="..." />
             <div class="carousel-caption text-black">
-                <div class="hero">
+                <!-- <div class="hero">
                     <p>The Worlds Destination for jewelry design</p>
                     <h1>Find Dream Designers</h1>
                     <small>
@@ -28,10 +46,10 @@
                             </svg>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
-
+        <!-- 
         <div class="carousel-item">
             <div class="overlay"></div>
             <img src="{{asset('/clientSideAssets/plugin/img/slide-img-2.jpg')}}" class="d-block w-100" alt="..." />
@@ -50,16 +68,16 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-    </button>
+    </button> -->
 </div>
 
 <!-- Designs Cards -->
@@ -610,7 +628,7 @@
                     </div>
                     <p class="pt-2">
                         Are you a designer?
-                        <a href="{{route('login')}}" class="text-black">Publish Your Portfolio</a>
+                        <a href="" class="text-black join">Publish Your Portfolio</a>
                     </p>
                 </div>
             </div>

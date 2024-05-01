@@ -22,12 +22,22 @@
     <div class="col-lg-7 col-11 mx-auto">
         <div class="search">
             <div class="row top-search">
-                <div class="col-lg-9 col-7">
+                <div class="col-lg-9 col-10">
                     <input class="form-control" id="Input" type="text" placeholder="Search here..." />
                 </div>
-                <div class="col-lg-3 col-5 p-0">
+                <div class="col-lg-3 col-2 p-0">
                     <button type="button" class="btn btn-primary w-100">
-                        Search
+                        <span class="d-none d-lg-block">
+
+                            Search
+                        </span>
+
+                        <span class="d-block d-lg-none">
+                            <svg width="24" height="24" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.364 3a7.364 7.364 0 1 0 0 14.727 7.364 7.364 0 0 0 0-14.727v0Z"></path>
+                                <path d="M15.857 15.86 21 21.001"></path>
+                            </svg>
+                        </span>
                     </button>
                 </div>
             </div>

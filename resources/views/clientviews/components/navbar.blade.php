@@ -1,7 +1,7 @@
-<nav id="navbar" class="navbar navbar-expand-lg navbar-light sticky-top">
-    <div class="overlay"></div>
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light sticky-top p-0">
+    <!-- <div class="overlay"></div> -->
     <div class="container">
-        <a class="navbar-brand" href="{{route('welcome')}}" style="width: 100px"><img src="{{asset('/clientSideAssets/images/logo.png')}}" width="100%" alt="" /></a>
+        <a class="navbar-brand" href="{{route('welcome')}}" style="width: 50px"><img src="{{asset('/clientSideAssets/images/logo-trans.png')}}" width="100%" alt="" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -11,10 +11,10 @@
                     <a class="nav-link {{ Request::is('deisgners') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('designers')}}">Find Designers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('login') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('login')}}">Publish Portfolio</a>
+                    <a class="nav-link active  mx-0" aria-current="page" href="">Publish Portfolio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('login') ? 'active' : '' }} mx-0" href="{{route('login')}}">Login</a>
+                    <a class="nav-link  mx-0" href="">Login</a>
                 </li>
             </ul>
         </div>
