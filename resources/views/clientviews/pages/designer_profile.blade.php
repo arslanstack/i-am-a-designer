@@ -68,7 +68,7 @@
             <div class="container">
                 <ul class="grid effect-1" id="grid">
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'id' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal1.jpg')}}" />
+                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal1.jpg')}}" />
                             <div class="mt-3">
                                 <h5>'Shades' Collection Summer '21</h5>
                                 <p>
@@ -80,7 +80,7 @@
                         </a>
                     </li>
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'id' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal2.jpg')}}" />
+                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal2.jpg')}}" />
                             <div class="mt-3">
                                 <h5>'Shades' Collection Summer '21</h5>
                                 <p>
@@ -92,7 +92,7 @@
                         </a>
                     </li>
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'id' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal3.jpg')}}" />
+                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal3.jpg')}}" />
                             <div class="mt-3">
                                 <h5>'Shades' Collection Summer '21</h5>
                                 <p>
@@ -104,7 +104,7 @@
                         </a>
                     </li>
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'id' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal4.jpg')}}" />
+                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal4.jpg')}}" />
                             <div class="mt-3">
                                 <h5>'Shades' Collection Summer '21</h5>
                                 <p>
@@ -116,7 +116,7 @@
                         </a>
                     </li>
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'id' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal5.jpg')}}" />
+                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal5.jpg')}}" />
                             <div class="mt-3">
                                 <h5>'Shades' Collection Summer '21</h5>
                                 <p>
@@ -128,7 +128,7 @@
                         </a>
                     </li>
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'id' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal6.jpg')}}" />
+                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal6.jpg')}}" />
                             <div class="mt-3">
                                 <h5>'Shades' Collection Summer '21</h5>
                                 <p>
@@ -140,7 +140,7 @@
                         </a>
                     </li>
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'id' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal7.jpg')}}" />
+                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal7.jpg')}}" />
                             <div class="mt-3">
                                 <h5>'Shades' Collection Summer '21</h5>
                                 <p>
@@ -152,7 +152,7 @@
                         </a>
                     </li>
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'id' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal8.jpg')}}" />
+                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal8.jpg')}}" />
                             <div class="mt-3">
                                 <h5>'Shades' Collection Summer '21</h5>
                                 <p>
@@ -164,7 +164,7 @@
                         </a>
                     </li>
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'id' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal9.jpg')}}" />
+                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal9.jpg')}}" />
                             <div class="mt-3">
                                 <h5>'Shades' Collection Summer '21</h5>
                                 <p>
@@ -176,7 +176,7 @@
                         </a>
                     </li>
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'id' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal10.jpg')}}" />
+                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal10.jpg')}}" />
                             <div class="mt-3">
                                 <h5>'Shades' Collection Summer '21</h5>
                                 <p>

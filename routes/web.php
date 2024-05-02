@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminGeneralController;
 use App\Http\Controllers\Designer\DesignerAuthController;
 use App\Http\Controllers\Designer\DesignerGeneralController;
+use App\Http\Controllers\Designer\ProjectController as DesignerProjectController;
 use App\Http\Controllers\User\UserAuthController;
 use App\Http\Controllers\User\UserGeneralController;
 use App\Http\Controllers\WelcomeController;
@@ -17,7 +18,7 @@ Route::get('/about-us', [WelcomeController::class, 'about'])->name('about');
 Route::get('/contact-us', [WelcomeController::class, 'contact'])->name('contact');
 Route::get('/privacy-policy', [WelcomeController::class, 'privacy'])->name('privacy');
 Route::get('/designer-profile/{username}', [WelcomeController::class, 'designer_profile'])->name('designer_profile');
-Route::get('/project/{username}/{id}', [WelcomeController::class, 'project'])->name('project');
+Route::get('/project/{username}/{slug}', [WelcomeController::class, 'project'])->name('project');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [AdminAuthController::class, 'showLogin'])->name('admin.login');
@@ -50,7 +51,14 @@ Route::group(['prefix' => 'designer'], function () {
         Route::get('/dashboard', [DesignerGeneralController::class, 'index'])->name('designer.dashboard');
         Route::get('/profile', [DesignerGeneralController::class, 'showProfile'])->name('designer.profile');
         Route::post('/update-profile', [DesignerGeneralController::class, 'updateProfile'])->name('designer.updateProfile');
-        Route::get('/projects', [DesignerGeneralController::class, 'showProjects'])->name('designer.projects');
+        Route::get('/projects', [DesignerProjectController::class, 'showProjects'])->name('designer.projects');
+        Route::get('/projects/show/{slug}', [DesignerProjectController::class, 'showOneProject'])->name('designer.projectDetails');
+        Route::get('/projects/add-new', [DesignerProjectController::class, 'showProjectForm'])->name('designer.add-projects');
+        Route::post('/projects/add-new', [DesignerProjectController::class, 'store'])->name('designer.storeProjects');
+        Route::post('/projects/edit', [DesignerProjectController::class, 'edit'])->name('designer.editProjects');
+        Route::get('/projects/publish/{id}', [DesignerProjectController::class, 'publish'])->name('designer.publishProject');
+        Route::get('/projects/unpublish/{id}', [DesignerProjectController::class, 'unpublish'])->name('designer.unpublishProject');
+        Route::get('/projects/delete/{id}', [DesignerProjectController::class, 'delete'])->name('designer.deleteProject');
         Route::get('/security', [DesignerGeneralController::class, 'showsecurity'])->name('designer.security');
         Route::post('/change-password', [DesignerGeneralController::class, 'changePswd'])->name('designer.changePswd');
         Route::get('/resend-verify-email', [DesignerGeneralController::class, 'resendVerifyMail'])->name('designer.resendVerificationMail');

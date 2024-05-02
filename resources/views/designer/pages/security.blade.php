@@ -62,7 +62,7 @@
 </form>
 @endsection
 @push('scripts')
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script type="text/javascript" src="{{asset('designer_assets/js/toastify.js')}}"></script>
 <script src="{{asset('clientSideAssets/jquery/jquery-3.7.1.min.js')}}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
