@@ -5,6 +5,7 @@
 
     <meta charset="utf-8" />
     <title>Designer Dashboard | I am a designer</title>
+    <link rel="icon" type="image/x-icon" href="{{asset('clientSideAssets/images/favicon.ico')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="I am a designer" name="description" />
     <meta content="Iamadesigner" name="author" />

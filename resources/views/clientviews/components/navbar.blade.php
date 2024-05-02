@@ -7,15 +7,49 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                @if(Auth::guard('web')->check())
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('deisgners') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('designers')}}">Find Designers</a>
+                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('welcome')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active  mx-0" aria-current="page" href="">Publish Portfolio</a>
+                    <a class="nav-link {{ Request::is('deisgners') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('designers')}}">Search designers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  mx-0" href="">Login</a>
+                    <a class="nav-link mx-0" aria-current="page" href="{{route('user.savedProjects')}}">Saved Projects</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-0" aria-current="page" href="{{route('user.dashboard')}}" onclick="event.preventDefault(); document.getElementById('user-logout-form').submit();">Logout</a>
+                </li>
+                <form action="{{route('user.logout')}}" method="post" id="user-logout-form">
+                    @csrf
+                </form>
+                @elseif(Auth::guard('designer')->check())
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('welcome')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-0" aria-current="page" href="{{route('designer.dashboard')}}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-0" aria-current="page" href="{{route('designer.projects')}}">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-0" aria-current="page" href="{{route('designer.projects')}}" onclick="event.preventDefault(); document.getElementById('designer-logout-form').submit();">Logout</a>
+                </li>
+                <form action="{{route('designer.logout')}}" method="post" id="designer-logout-form">
+                    @csrf
+                </form>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('welcome')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('deisgners') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('designers')}}">Search designers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-0  {{ Request::is('designer/login') ? 'active' : '' }}" aria-current="page" href="{{route('designer.dashboard')}}">Publish Projects</a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>

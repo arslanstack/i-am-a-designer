@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <!-- <html class="no-js" lang="zxx" > if route is like /admin/blogs then lang="ur else lang="en"   -->
-<html class="no-js" {{ Request::is('admin/blogs/*') ? 'lang=ur' : 'lang=zxx' }} >
+<html class="no-js" {{ Request::is('admin/blogs/*') ? 'lang=ur' : 'lang=zxx' }}>
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>{{ get_section_content('project', 'site_title') }} | Administrator Panel</title>
+	<title>Admin Panel - I am a designer</title>
+	<link rel="icon" type="image/x-icon" href="{{asset('clientSideAssets/images/favicon.ico')}}">
+
 	@include('common.admin_header')
 	<style>
 		.carousel-indicators li {
