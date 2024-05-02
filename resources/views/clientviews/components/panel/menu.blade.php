@@ -2,9 +2,9 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
-        <a href="index.html" class="logo logo-dark">
+        <a href="{{route('welcome')}}" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="{{asset('clientSideAssets/images/symbol.png')}}" alt="" height="32">
+                <img src="{{asset('clientSideAssets/images/logo-trans.png')}}" alt="" height="32">
             </span>
             <span class="logo-lg">
                 <img src="{{asset('clientSideAssets/images/logo.png')}}" alt="" height="100">
@@ -23,9 +23,26 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
-                    <a href="dashboard-analytics.html" class="nav-link menu-link"><i class="ri-dashboard-2-line"></i> <span>Dashboards</span> </a>
+                    <a href="{{route('user.dashboard')}}" class="nav-link menu-link {{ Request::is('user/dashboard') ? 'active' : '' }} {{ Request::is('user') ? 'active' : '' }}"><i class="ri-dashboard-2-line"></i> <span>Dashboard</span> </a>
                 </li>
-
+                @if(isUserVerified())
+                <li class="nav-item">
+                    <a href="{{route('user.profile')}}" class="nav-link menu-link {{ Request::is('user/profile') ? 'active' : '' }}"><i class="ri-user-2-line"></i> <span>Profile Settings</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('user.savedProjects')}}" class="nav-link menu-link {{ Request::is('user/saved-projects') ? 'active' : '' }}"><i class="ri-slideshow-line"></i> <span>Saved Projects</span> </a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a href="#" class="nav-link menu-link disabled"><i class="ri-user-2-line"></i> <span>Profile Settings</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link menu-link disabled"><i class="ri-slideshow-line"></i> <span>Saved Projects</span> </a>
+                </li>
+                @endif
+                <li class="nav-item">
+                    <a href="{{route('user.security')}}" class="nav-link menu-link {{ Request::is('user/security') ? 'active' : '' }} {{ Request::is('user/security/*') ? 'active' : '' }}"><i class="ri-lock-line"></i> <span>Security Settings</span> </a>
+                </li>
             </ul>
         </div>
     </div>

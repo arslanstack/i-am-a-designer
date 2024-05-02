@@ -35,7 +35,11 @@
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
                     <h6 class="dropdown-header">Welcome {{Auth::guard('designer')->user()->name}}!</h6>
+                    @if(isDesignerVerified())
                     <a class="dropdown-item" href="{{route('designer.profile')}}"><i class=" mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+                    @else
+                    <a class="dropdown-item disabled" href="#"><i class=" mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
+                    @endif
                     <a class="dropdown-item" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
                     <form action="{{route('designer.logout')}}" method="post" id="logout-form">
                         @csrf

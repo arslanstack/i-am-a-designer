@@ -49,16 +49,18 @@ Route::group(['prefix' => 'designer'], function () {
 
     Route::middleware(['auth:designer'])->group(function () {
         Route::get('/dashboard', [DesignerGeneralController::class, 'index'])->name('designer.dashboard');
-        Route::get('/profile', [DesignerGeneralController::class, 'showProfile'])->name('designer.profile');
-        Route::post('/update-profile', [DesignerGeneralController::class, 'updateProfile'])->name('designer.updateProfile');
-        Route::get('/projects', [DesignerProjectController::class, 'showProjects'])->name('designer.projects');
-        Route::get('/projects/show/{slug}', [DesignerProjectController::class, 'showOneProject'])->name('designer.projectDetails');
-        Route::get('/projects/add-new', [DesignerProjectController::class, 'showProjectForm'])->name('designer.add-projects');
-        Route::post('/projects/add-new', [DesignerProjectController::class, 'store'])->name('designer.storeProjects');
-        Route::post('/projects/edit', [DesignerProjectController::class, 'edit'])->name('designer.editProjects');
-        Route::get('/projects/publish/{id}', [DesignerProjectController::class, 'publish'])->name('designer.publishProject');
-        Route::get('/projects/unpublish/{id}', [DesignerProjectController::class, 'unpublish'])->name('designer.unpublishProject');
-        Route::get('/projects/delete/{id}', [DesignerProjectController::class, 'delete'])->name('designer.deleteProject');
+        Route::middleware(['verified.designer'])->group(function () {
+            Route::get('/profile', [DesignerGeneralController::class, 'showProfile'])->name('designer.profile');
+            Route::post('/update-profile', [DesignerGeneralController::class, 'updateProfile'])->name('designer.updateProfile');
+            Route::get('/projects', [DesignerProjectController::class, 'showProjects'])->name('designer.projects');
+            Route::get('/projects/show/{slug}', [DesignerProjectController::class, 'showOneProject'])->name('designer.projectDetails');
+            Route::get('/projects/add-new', [DesignerProjectController::class, 'showProjectForm'])->name('designer.add-projects');
+            Route::post('/projects/add-new', [DesignerProjectController::class, 'store'])->name('designer.storeProjects');
+            Route::post('/projects/edit', [DesignerProjectController::class, 'edit'])->name('designer.editProjects');
+            Route::get('/projects/publish/{id}', [DesignerProjectController::class, 'publish'])->name('designer.publishProject');
+            Route::get('/projects/unpublish/{id}', [DesignerProjectController::class, 'unpublish'])->name('designer.unpublishProject');
+            Route::get('/projects/delete/{id}', [DesignerProjectController::class, 'delete'])->name('designer.deleteProject');
+        });
         Route::get('/security', [DesignerGeneralController::class, 'showsecurity'])->name('designer.security');
         Route::post('/change-password', [DesignerGeneralController::class, 'changePswd'])->name('designer.changePswd');
         Route::get('/resend-verify-email', [DesignerGeneralController::class, 'resendVerifyMail'])->name('designer.resendVerificationMail');
@@ -79,6 +81,13 @@ Route::group(['prefix' => 'user'], function () {
 
     Route::middleware(['auth:web'])->group(function () {
         Route::get('/dashboard', [UserGeneralController::class, 'index'])->name('user.dashboard');
+        Route::middleware(['verified.user'])->group(function () {
+            Route::get('/profile', [UserGeneralController::class, 'showProfile'])->name('user.profile');
+            Route::post('/update-profile', [UserGeneralController::class, 'updateProfile'])->name('user.updateProfile');
+            Route::get('/saved-projects', [UserGeneralController::class, 'savedProjects'])->name('user.savedProjects');
+        });
+        Route::get('/security', [UserGeneralController::class, 'showsecurity'])->name('user.security');
+        Route::post('/change-password', [UserGeneralController::class, 'changePswd'])->name('user.changePswd');
         Route::get('/resend-verify-email', [UserGeneralController::class, 'resendVerifyMail'])->name('user.resendVerificationMail');
     });
 });

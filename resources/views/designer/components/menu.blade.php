@@ -25,12 +25,21 @@
                 <li class="nav-item">
                     <a href="{{route('designer.dashboard')}}" class="nav-link menu-link {{ Request::is('designer/dashboard') ? 'active' : '' }} {{ Request::is('designer') ? 'active' : '' }}"><i class="ri-dashboard-2-line"></i> <span>Dashboards</span> </a>
                 </li>
+                @if(isDesignerVerified())
                 <li class="nav-item">
                     <a href="{{route('designer.profile')}}" class="nav-link menu-link {{ Request::is('designer/profile') ? 'active' : '' }}"><i class="ri-user-2-line"></i> <span>Profile Settings</span> </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('designer.projects')}}" class="nav-link menu-link {{ Request::is('designer/projects') ? 'active' : '' }} {{ Request::is('designer/projects/*') ? 'active' : '' }}"><i class="ri-slideshow-line"></i> <span>Manage Projects</span> </a>
                 </li>
+                @else
+                <li class="nav-item">
+                    <a href="#" class="nav-link menu-link disabled"><i class="ri-user-2-line"></i> <span>Profile Settings</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link menu-link disabled"><i class="ri-slideshow-line"></i> <span>Manage Projects</span> </a>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a href="{{route('designer.security')}}" class="nav-link menu-link {{ Request::is('designer/security') ? 'active' : '' }} {{ Request::is('designer/security/*') ? 'active' : '' }}"><i class="ri-lock-line"></i> <span>Security Settings</span> </a>
                 </li>

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -180,5 +181,28 @@ if (!function_exists('find_records')) {
             ]);
             return $new_id;
         }
+    }
+}
+
+if (!function_exists('isDesignerVerified')) {
+    function isDesignerVerified()
+    {
+        if (Auth::guard('designer')->user()->email_verified_at != null) {
+            return true;
+        } else {
+            return false;
+        }
+        return false;
+    }
+}
+if (!function_exists('isUserVerified')) {
+    function isUserVerified()
+    {
+        if (Auth::guard('web')->user()->email_verified_at != null) {
+            return true;
+        } else {
+            return false;
+        }
+        return false;
     }
 }

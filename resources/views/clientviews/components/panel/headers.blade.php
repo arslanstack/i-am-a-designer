@@ -1,4 +1,5 @@
 @stack('styles')
+<link rel="stylesheet" type="text/css" href="{{asset('designer_assets/css/toastify.css')}}">
 <link rel="shortcut icon" href="{{asset('clientSideAssets/images/symbol.png')}}">
 <link href="{{asset('designer_assets/libs/jsvectormap/css/jsvectormap.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('designer_assets/libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet" type="text/css" />

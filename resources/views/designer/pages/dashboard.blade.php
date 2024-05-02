@@ -21,13 +21,13 @@
                             <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
                                 <i data-feather="alert-triangle" class="text-warning me-2 icon-sm"></i>
                                 <div class="flex-grow-1 text-truncate">
-                                    <span class="fw-semibold">Please verify your email to continue using services</span>
+                                    <span class="fw-semibold">Welcome! To unlock the full potential of this platform, please verify your email address. We've sent a verification link to your inbox.</span>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="p-3">
-                                        <p class="fs-16">Resend verification link to get your email address verified. <b><a href="{{route('designer.dashboard')}}" id="verificationLink" onclick="event.preventDefault(); submitVerificationForm();" class="text-warning" style="cursor: pointer;">Click Here</a></b> to generate new verification link.</p>
+                                        <p class="fs-16">Open your inbox to find the email verification link or <b><a href="{{route('designer.dashboard')}}" id="verificationLink" onclick="event.preventDefault(); submitVerificationForm();" class="text-warning" style="cursor: pointer;">Click Here</a></b> to generate a new verification link.</p>
                                     </div>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                     </div>
                 </div> <!-- end col-->
             </div> <!-- end row-->
-            @endif
+            @else
 
             <div class="row">
                 <div class="col-md-6">
@@ -77,6 +77,7 @@
                     </div> <!-- end card-->
                 </div> <!-- end col-->
             </div>
+            @endif
         </div>
     </div>
 </div>
