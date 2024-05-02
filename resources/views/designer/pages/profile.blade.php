@@ -19,7 +19,7 @@
     @csrf
     <div class="position-relative mx-n4 mt-n4">
         <div class="profile-wid-bg profile-setting-img">
-            <img src="{{$designer->cover_image ? asset('uploads/designers/images/' . $designer->cover_image) : asset('designer_assets/images/profile-bg.jpg')}}" class="profile-wid-img" alt="">
+            <img src="{{$designer->cover_image != 'cover.png' ? asset('uploads/designers/images/' . $designer->cover_image) : asset('designer_assets/images/profile-bg.jpg')}}" class="profile-wid-img" alt="">
             <div class="overlay-content">
                 <div class="text-end p-3">
                     <div class="p-0 ms-auto rounded-circle profile-photo-edit">

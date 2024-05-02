@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 Route::get('/designers', [WelcomeController::class, 'designers'])->name('designers');
+Route::get('/designer-search', [WelcomeController::class, 'designerSearch'])->name('designerSearch');
 Route::get('/about-us', [WelcomeController::class, 'about'])->name('about');
 Route::get('/contact-us', [WelcomeController::class, 'contact'])->name('contact');
 Route::get('/privacy-policy', [WelcomeController::class, 'privacy'])->name('privacy');

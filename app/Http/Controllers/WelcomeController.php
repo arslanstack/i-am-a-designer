@@ -3,25 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Designer;
+use App\Models\Project;
 
 class WelcomeController extends Controller
 {
     public function welcome()
     {
-        return view('clientviews.pages.landing');
+        $projects = Project::inRandomOrder()->limit(11)->get();
+        foreach ($projects as $project) {
+            $project->designer = Designer::find($project->designer_id);
+        }
+        return view('clientviews.pages.landing', compact('projects'));
     }
 
     public function designers()
     {
-        return view('clientviews.pages.designers');
+        $designers = Designer::inRandomOrder()->limit(12)->get();
+        return view('clientviews.pages.designers', compact('designers'));
     }
-    public function login()
+    public function designerSearch(Request $request)
     {
-        return view('clientviews.pages.login');
-    }
-    public function register()
-    {
-        return view('clientviews.pages.register');
+        $name = $request->designer_name;
+        $designers = Designer::where('name', 'like', '%' . $name . '%')->get();
+        return view('clientviews.pages.designers', compact(['designers', 'name']));
     }
     public function about()
     {

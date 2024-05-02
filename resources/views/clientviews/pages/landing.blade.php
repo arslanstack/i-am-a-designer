@@ -79,6 +79,25 @@
         <span class="visually-hidden">Next</span>
     </button> -->
 </div>
+<!-- Masonary Gallery-->
+
+<div class="container py-4">
+    <div class="section-heading text-center pt-4">
+        <h1>Explore, Connect & Create</h1>
+        <p class="py-2" style="font-size: 20px;">Express your individuality with wearable works of art.</p>
+    </div>
+</div>
+
+<div class="container">
+    <ul class="grid effect-1" id="grid">
+        @foreach($projects as $item)
+        <li>
+            <a href="{{route('project', ['username' => $item->designer['username'], 'slug' => $item->slug])}}" style="text-decoration: none;"><img src="{{asset('/uploads/projects/' . $item->banner)}}" />
+            </a>
+        </li>
+        @endforeach
+    </ul>
+</div>
 
 <!-- Designs Cards -->
 <div class="container py-5">
@@ -456,66 +475,6 @@
     </div>
 </div>
 
-<!-- Masonary Gallery-->
-
-<div class="container py-4">
-    <div class="section-heading text-center pt-4">
-        <h1>Explore, Connect & Create</h1>
-        <p class="py-2" style="font-size: 20px;">Express your individuality with wearable works of art.</p>
-    </div>
-</div>
-
-<div class="container">
-    <ul class="grid effect-1" id="grid">
-        <li>
-            <a href="" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal1.jpg')}}" />
-
-            </a>
-        </li>
-        <li>
-            <a href="" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal2.jpg')}}" />
-
-            </a>
-        </li>
-        <li>
-            <a href="" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal3.jpg')}}" />
-
-            </a>
-        </li>
-        <li>
-            <a href="" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal4.jpg')}}" />
-
-            </a>
-        </li>
-        <li>
-            <a href="" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal5.jpg')}}" />
-
-            </a>
-        </li>
-        <li>
-            <a href="" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal6.jpg')}}" />
-
-            </a>
-        </li>
-        <li>
-            <a href="" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal7.jpg')}}" />
-
-            </a>
-        </li>
-        <li>
-            <a href="" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal8.jpg')}}" />
-
-            </a>
-        </li>
-        <li>
-            <a href="" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal9.jpg')}}" />
-
-            </a>
-        </li>
-
-
-    </ul>
-</div>
 
 <!-- Team Cards -->
 <div class="container">
@@ -621,14 +580,14 @@
                     </p>
                     <div class="row">
                         <div class="col-lg-12">
-                            <button class="w-50 m-auto started my-2 redirectButton">
+                            <button onclick="event.preventDefault(); relocateToSearch()" class="w-50 m-auto started my-2 redirectButton">
                                 Get started now
                             </button>
                         </div>
                     </div>
                     <p class="pt-2">
                         Are you a designer?
-                        <a href="" class="text-black join">Publish Your Portfolio</a>
+                        <a href="{{route('designer.dashboard')}}" class="text-black join">Publish Your Portfolio</a>
                     </p>
                 </div>
             </div>
@@ -642,6 +601,9 @@
 <script src="{{asset('/clientSideAssets/masonary/js/classie.js')}}"></script>
 <script src="{{asset('/clientSideAssets/masonary/js/AnimOnScroll.js')}}"></script>
 <script>
+    function relocateToSearch() {
+        window.location.href = "{{route('designers')}}";
+    }
     // Slider Redirect
     const buttons = document.querySelectorAll('.redirectButton');
 
