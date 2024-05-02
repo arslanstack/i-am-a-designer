@@ -42,11 +42,15 @@ class WelcomeController extends Controller
     }
     public function designer_profile($username)
     {
-        return view('clientviews.pages.designer_profile');
+        $designer = Designer::where('username', $username)->first();
+        $projects = $designer->projects;
+        return view('clientviews.pages.designer_profile', compact(['designer', 'projects']));
     }
-    public function project($username, $project_id)
+    public function project($username, $slug)
     {
-        return view('clientviews.pages.project');
+        $designer = Designer::where('username', $username)->first();
+        $project = Project::where('slug', $slug)->first();
+        return view('clientviews.pages.project', compact(['designer', 'project']));
     }
 
     public function home()

@@ -741,7 +741,7 @@ img {
   width: 100%;
   height: 100%;
   border-radius: 60%;
-  border: 3px solid #ffca0c !important;
+  border: 3px solid #ddddd5 !important;
 
 }
 
@@ -920,7 +920,7 @@ img {
 }
 
 .profile-text {
-  color: #ffca0c !important;
+  color: #2b2a29 !important;
 }
 
 .profile-text p {

@@ -8,15 +8,15 @@
 <!-- Designer Head -->
 <div class="container pt-3 pb-0">
     <div class="col-lg-6 col-12 mx-auto">
-        <div class="py-3  justify-content-center  text-center">
+        <div class="py-2  justify-content-center  text-center">
             <div class="profile m-auto">
-                <img src="{{asset('/clientSideAssets/images/potrait.avif')}}" alt="" />
+                <img src="{{asset('uploads/designers/images/' . $designer->image)}}" alt="" />
             </div>
             <div class="mx-3 profile-text">
                 <!-- <span class="pro-badge">PRO</span> -->
-                <h1 class="m-0 pt-2">Your Name</h1>
-                <p class="text-muted m-0">United States</p>
-                <div class="d-flex designer-social  justify-content-center">
+                <h1 class="m-0 pt-2">{{$designer->name}}</h1>
+                <p class="text-muted m-0" style="font-size: 20px;">{{$designer->city ? $designer->city . ', ' : ''}} {{$designer->country ?? ''}}</p>
+                <!-- <div class="d-flex designer-social  justify-content-center">
                     <a href="">
                         <svg width="24" height="24" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.375 3.25a4.388 4.388 0 0 1 4.375 4.375v8.75a4.388 4.388 0 0 1-4.375 4.375h-8.75a4.389 4.389 0 0 1-4.375-4.375v-8.75A4.388 4.388 0 0 1 7.625 3.25h8.75Zm0-1.75h-8.75C4.256 1.5 1.5 4.256 1.5 7.625v8.75c0 3.369 2.756 6.125 6.125 6.125h8.75c3.369 0 6.125-2.756 6.125-6.125v-8.75c0-3.369-2.756-6.125-6.125-6.125Z"></path>
@@ -34,14 +34,14 @@
                             <path d="M23.25 5.133a9.46 9.46 0 0 1-2.65.717 4.57 4.57 0 0 0 2.03-2.512c-.908.53-1.9.903-2.932 1.101A4.647 4.647 0 0 0 16.327 3c-2.55 0-4.615 2.034-4.615 4.542a4.37 4.37 0 0 0 .119 1.036A13.158 13.158 0 0 1 2.315 3.83a4.485 4.485 0 0 0-.627 2.283c0 1.574.821 2.967 2.062 3.782a4.57 4.57 0 0 1-2.1-.567v.056c0 2.204 1.595 4.036 3.704 4.454a4.752 4.752 0 0 1-1.216.159c-.291 0-.582-.028-.868-.085.587 1.805 2.294 3.118 4.315 3.155a9.356 9.356 0 0 1-6.835 1.88A13.063 13.063 0 0 0 7.816 21c8.501 0 13.146-6.923 13.146-12.928 0-.197-.006-.394-.015-.586a9.304 9.304 0 0 0 2.303-2.353Z"></path>
                         </svg>
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </div>
 
 <!-- Tabs -->
-<div class="container mt-5">
+<div class="container mt-3">
     <!-- Tab Navigation Buttons -->
     <ul class="nav nav-tabs justify-content-center border-0" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -67,134 +67,25 @@
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="container">
                 <ul class="grid effect-1" id="grid">
+                    @foreach($projects as $project)
                     <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal1.jpg')}}" />
+                        <a href="{{ route('project', ['username' => $designer->username, 'slug' => $project->slug]) }}" style="text-decoration: none;"><img src="{{asset('uploads/projects/' . $project->banner)}}" />
                             <div class="mt-3">
-                                <h5>'Shades' Collection Summer '21</h5>
+                                <h5>{{$project->title}}</h5>
                                 <p>
-                                    The Summer 2021 "Shades" collection was designed as an opportunity
-                                    to bring people together during the pandemic. This collection was
-                                    inspired by each member of the...
+                                    {{substr($project->description, 0, 100)}}...
                                 </p>
                             </div>
                         </a>
                     </li>
-                    <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal2.jpg')}}" />
-                            <div class="mt-3">
-                                <h5>'Shades' Collection Summer '21</h5>
-                                <p>
-                                    The Summer 2021 "Shades" collection was designed as an opportunity
-                                    to bring people together during the pandemic. This collection was
-                                    inspired by each member of the...
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal3.jpg')}}" />
-                            <div class="mt-3">
-                                <h5>'Shades' Collection Summer '21</h5>
-                                <p>
-                                    The Summer 2021 "Shades" collection was designed as an opportunity
-                                    to bring people together during the pandemic. This collection was
-                                    inspired by each member of the...
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal4.jpg')}}" />
-                            <div class="mt-3">
-                                <h5>'Shades' Collection Summer '21</h5>
-                                <p>
-                                    The Summer 2021 "Shades" collection was designed as an opportunity
-                                    to bring people together during the pandemic. This collection was
-                                    inspired by each member of the...
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal5.jpg')}}" />
-                            <div class="mt-3">
-                                <h5>'Shades' Collection Summer '21</h5>
-                                <p>
-                                    The Summer 2021 "Shades" collection was designed as an opportunity
-                                    to bring people together during the pandemic. This collection was
-                                    inspired by each member of the...
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal6.jpg')}}" />
-                            <div class="mt-3">
-                                <h5>'Shades' Collection Summer '21</h5>
-                                <p>
-                                    The Summer 2021 "Shades" collection was designed as an opportunity
-                                    to bring people together during the pandemic. This collection was
-                                    inspired by each member of the...
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal7.jpg')}}" />
-                            <div class="mt-3">
-                                <h5>'Shades' Collection Summer '21</h5>
-                                <p>
-                                    The Summer 2021 "Shades" collection was designed as an opportunity
-                                    to bring people together during the pandemic. This collection was
-                                    inspired by each member of the...
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal8.jpg')}}" />
-                            <div class="mt-3">
-                                <h5>'Shades' Collection Summer '21</h5>
-                                <p>
-                                    The Summer 2021 "Shades" collection was designed as an opportunity
-                                    to bring people together during the pandemic. This collection was
-                                    inspired by each member of the...
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal9.jpg')}}" />
-                            <div class="mt-3">
-                                <h5>'Shades' Collection Summer '21</h5>
-                                <p>
-                                    The Summer 2021 "Shades" collection was designed as an opportunity
-                                    to bring people together during the pandemic. This collection was
-                                    inspired by each member of the...
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="projected_card">
-                        <a href="{{ route('project', ['username' => 'mathewperry', 'slug' => 1]) }}" style="text-decoration: none;"><img src="{{asset('/clientSideAssets/images/gal10.jpg')}}" />
-                            <div class="mt-3">
-                                <h5>'Shades' Collection Summer '21</h5>
-                                <p>
-                                    The Summer 2021 "Shades" collection was designed as an opportunity
-                                    to bring people together during the pandemic. This collection was
-                                    inspired by each member of the...
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-
+                    @endforeach
                 </ul>
             </div>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="container">
                 <div class="col-lg-8 mx-auto resume">
-                    <img src="{{asset('/clientSideAssets/images/resume.png')}}" width="100%" alt="">
+                    <a href="{{asset('uploads/designers/resumes/' . $designer->resume)}}" target="_blank"><img src="{{asset('uploads/designers/resumes/' . $designer->resume)}}" width="100%" alt=""></a>
                 </div>
             </div>
         </div>
@@ -202,13 +93,10 @@
 
             <div class="col-lg-10 mx-auto pt-3 pb-5">
                 <div style="border-radius: 20px; overflow: hidden">
-                    <img src="https://framerusercontent.com/images/MSOY9fWwJ1EQeK4PRTFyHCPx4.jpg" width="100%" alt="" />
+                    <img src="{{$designer->cover_image != 'cover.png' ? asset('uploads/designers/images/' . $designer->cover_image) : 'https://framerusercontent.com/images/MSOY9fWwJ1EQeK4PRTFyHCPx4.jpg'}}" width="100%" alt="" />
                 </div>
                 <p class="my-4" style="text-align: justify;">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis porro molestiae nam aperiam, maxime ipsam earum aliquid voluptatibus dolores amet commodi soluta excepturi facere omnis unde, saepe quos fugiat libero hic iusto, repudiandae voluptas dicta veritatis? Exercitationem omnis eum provident rem ab voluptatibus enim eius nostrum inventore, aperiam similique fugiat numquam ut totam iusto impedit explicabo reprehenderit magnam ex illo dolorum nam quia fugit sint. Voluptate in nihil reiciendis, unde architecto dicta repellendus earum iure soluta inventore delectus aut sunt temporibus ea assumenda culpa harum. Placeat voluptate similique, nihil debitis doloribus vel tempora soluta expedita harum! Recusandae aut dignissimos nemo?
-                </p>
-                <p class="my-4" style="text-align: justify;">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis porro molestiae nam aperiam, maxime ipsam earum aliquid voluptatibus dolores amet commodi soluta excepturi facere omnis unde, saepe quos fugiat libero hic iusto, repudiandae voluptas dicta veritatis? Exercitationem omnis eum provident rem ab voluptatibus enim eius nostrum inventore, aperiam similique fugiat numquam ut totam iusto impedit explicabo reprehenderit magnam ex illo dolorum nam quia fugit sint. Voluptate in nihil reiciendis, unde architecto dicta repellendus earum iure soluta inventore delectus aut sunt temporibus ea assumenda culpa harum. Placeat voluptate similique, nihil debitis doloribus vel tempora soluta expedita harum! Recusandae aut dignissimos nemo?
+                    {{$designer->about}}
                 </p>
             </div>
 
@@ -242,7 +130,7 @@
 
         if (tabParam) {
             var tabIdsMap = {
-                'projects': 'home-tab',
+                'work': 'home-tab',
                 'resume': 'resume-tab',
                 'about': 'about-tab'
             };
