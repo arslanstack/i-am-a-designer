@@ -41,7 +41,7 @@
 
 
 
-                    <button type="submit" class="btn btn-primary w-100">LOGIN</button>
+                    <button type="submit" class="btn btn-primary w-100" style="background-color:#9C8A4A !important; border:1px solid #9C8A4A; color: white;">LOGIN</button>
                     <div class="d-flex justify-content-center py-2">
                         <div>
                             <a href="{{route('user.reset')}}" class="text-decoration-none">Forgot Password?</a>

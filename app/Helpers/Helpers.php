@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Designer;
+use App\Models\ProjectSave;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -204,5 +206,48 @@ if (!function_exists('isUserVerified')) {
             return false;
         }
         return false;
+    }
+}
+
+if (!function_exists('memberSince')) {
+    function memberSince($designerID)
+    {
+        $designer = DB::table('designers')->where('id', $designerID)->first();
+        return date('M Y', strtotime($designer->created_at));
+    }
+}
+if (!function_exists('count_total_designers')) {
+    function count_total_designers()
+    {
+        $query = DB::table('designers');
+        return $query->count();
+    }
+}
+if (!function_exists('count_total_clients')) {
+    function count_total_clients()
+    {
+        $query = DB::table('users');
+        return $query->count();
+    }
+}
+if (!function_exists('count_total_projects')) {
+    function count_total_projects()
+    {
+        $query = DB::table('projects');
+        return $query->count();
+    }
+}
+if (!function_exists('count_saves')) {
+    function count_saves()
+    {
+        $count = ProjectSave::where('designer_id', Auth::guard('designer')->user()->id)->count();
+        return $count;
+    }
+}
+if (!function_exists('count_visits')) {
+    function count_visits()
+    {
+        $count = Designer::where('id', Auth::guard('designer')->user()->id)->first();
+        return $count->view_count;
     }
 }

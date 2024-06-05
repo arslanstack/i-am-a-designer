@@ -7,7 +7,7 @@
             <span class="m-r-sm text-muted welcome-message">Welcome to {{ get_section_content('project', 'site_title') }}</span>
         </li>
         <li>
-            <a href="{{ url('admin/change_password') }}">
+            <a href="{{ url('admin/change-password') }}">
                 <i class="fa fa-key"></i> Change Password
             </a>
         </li>

@@ -50,20 +50,20 @@
             <a class="withoutdecanchor" href="{{route('designer_profile',$designer->username)}}">
                 <div class="card my-3 designer-card py-2 border-0">
                     <div class="d-flex m-2 mx-3">
-                        <div class="logo" style="width: 50px; height: 50px">
+                        <!-- <div class="logo" style="width: 50px; height: 50px">
                             <img src="{{asset('uploads/designers/images/' . $designer->image)}}" alt="" />
-                        </div>
+                        </div> -->
                         <div class="ms-3 mt-1">
                             <h6 class="m-0">{{$designer->name}}</h6>
                             <small class="text-muted">{{$designer->city ? $designer->city . ', ' : ''}} {{$designer->country ?? ''}}</small>
                         </div>
                     </div>
                     <div class="d-flex mx-2 tags">
-                        <div>
+                        <!-- <div>
                             @if($designer->open == 0)
                             <span class="badge bg-secondary ms-2 accept">Open to work</span>
                             @endif
-                        </div>
+                        </div> -->
                         <!-- <div>
                             <span class="badge bg-secondary ms-2 pro">PRO</span>
                         </div> -->
@@ -71,11 +71,8 @@
 
                     <div class="card-body">
                         <div class="designer-image">
-                            <img src="{{$designer->cover_image != 'cover.png' ? asset('uploads/designers/images/' . $designer->cover_image) : asset('uploads/designers/images/cover_img.jpg')}}" class="card-img-top" alt="..." />
+                            <img src="{{asset('uploads/designers/images/' . $designer->image)}}" class="card-img-top" alt="..." />
                         </div>
-                        <!-- <div class="pt-2">
-                            <small class="card-text text-muted"> $50 (USD) per hour </small>
-                        </div> -->
                     </div>
                 </div>
             </a>

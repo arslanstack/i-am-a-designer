@@ -9,13 +9,10 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 @if(Auth::guard('web')->check())
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('welcome')}}">Home</a>
+                    <a class="nav-link {{ Request::is('designers') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('designers')}}">Search Talent</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('deisgners') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('designers')}}">Search designers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-0" aria-current="page" href="{{route('user.savedProjects')}}">Saved Projects</a>
+                    <a class="nav-link {{ Request::is('user/dashboard') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('user.dashboard')}}">Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mx-0" aria-current="page" href="{{route('user.dashboard')}}" onclick="event.preventDefault(); document.getElementById('user-logout-form').submit();">Logout</a>
@@ -24,9 +21,6 @@
                     @csrf
                 </form>
                 @elseif(Auth::guard('designer')->check())
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('welcome')}}">Home</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link mx-0" aria-current="page" href="{{route('designer.dashboard')}}">Dashboard</a>
                 </li>
@@ -41,13 +35,13 @@
                 </form>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('welcome')}}">Home</a>
+                    <a class="nav-link {{ Request::is('designers') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('designers')}}">Search Talent</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('deisgners') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('designers')}}">Search designers</a>
+                    <a class="nav-link {{ Request::is('user/login') ? 'active' : '' }} mx-0" aria-current="page" href="{{route('user.login')}}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-0  {{ Request::is('designer/login') ? 'active' : '' }}" aria-current="page" href="{{route('designer.dashboard')}}">Publish Projects</a>
+                    <a class="nav-link mx-0  {{ Request::is('designer/login') ? 'active' : '' }}" aria-current="page" href="{{route('designer.dashboard')}}">Create a Portfolio</a>
                 </li>
                 @endif
             </ul>

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Designer;
+use App\Models\Project;
+use App\Models\ProjectSave;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -150,5 +153,37 @@ class UserGeneralController extends Controller
                 'message' => 'Old password is incorrect',
             ]);
         }
+    }
+
+    public function savedProjects(Request $request)
+    {
+
+        $user = Auth::user();
+        $saves = ProjectSave::where('user_id', $user->id)->get();
+
+        foreach ($saves as $save) {
+            $projects[] = Project::where('id', $save->project_id)->first();
+        }
+        if (!empty($projects)) {
+            foreach ($projects as $project) {
+                $designer = Designer::where('id', $project->designer_id)->first();
+                $project->designer = $designer;
+            }
+        } else {
+            $projects = [];
+        }
+        // dd($projects);
+        return view('clientviews.pages.saved_projects', compact('projects'));
+    }
+
+    public function removesavedproject($id)
+    {
+        $project = ProjectSave::where('project_id', $id)->first();
+        $user = Auth::user();
+
+        $saveproject = ProjectSave::where('project_id', $id)->where('user_id', $user->id)->first();
+        $saveproject->delete();
+
+        return response()->json(['success' => 'Project removed from saved projects.'], 200);
     }
 }

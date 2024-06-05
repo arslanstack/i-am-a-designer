@@ -1,5 +1,6 @@
 @extends('designer.layouts.app')
 @push('styles')
+<script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/super-build/ckeditor.js"></script>
 @endpush
 @section('content')
 <div class="row">
@@ -32,38 +33,46 @@
                 </div>
                 <div class="card-body p-4">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="mb-3">
-                                <label for="firstnameInput" class="form-label">
-                                    Project Title</label>
-                                <input type="text" class="form-control" name="title" value="{{$project->title}}" required placeholder="22' Fade Shade Collection">
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label for="firstnameInput" class="form-label">
+                                            Project Title</label>
+                                        <input type="text" class="form-control" name="title" required value="{{$project->title}}">
+                                    </div>
+                                </div>
+                                <!--end col-->
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label for="lastnameInput" class="form-label">Banner Image</label>
+                                        <input type="file" class="form-control" name="banner" id="banner" accept="image/*">
+                                    </div>
+                                </div>
+                                <!--end col-->
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label for="lastnameInput" class="form-label">Blog Subtitle</label>
+                                        <textarea class="form-control" name="subtitle" id="subtitle" rows="3" required>{{$project->subtitle}}</textarea>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <!--end col-->
-                        <div class="col-lg-12">
-                            <div class="mb-3">
-                                <label for="lastnameInput" class="form-label">Banner Image</label>
-                                <input type="file" class="form-control" name="banner" accept="image/*" required>
+                        <div class="col-lg-6">
+                            <div class="row">
+                                <!-- perview of banner image -->
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label for="lastnameInput" class="form-label">Banner Preview</label>
+                                        <img src="{{asset('uploads/projects/' . $project->banner)}}" id="bannerPreview" class="img-fluid" alt="preview" style="height: auto; width: 480px; overflow:auto;">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="mb-3">
-                                <label for="lastnameInput" class="form-label">Image Gallery <small>(File size < 2 Mb)</small></label>
-                                <input type="file" class="form-control" id="imgGal" name="images[]" accept="image/*" multiple>
-                            </div>
-                        </div>
-                        <!--end col-->
-                        <div class="col-lg-12">
-                            <div class="mb-3">
-                                <label for="lastnameInput" class="form-label">Video Gallery <small>(Max 3 videos each < 10 Mb)</small></label>
-                                <input type="file" class="form-control" id="vidGal" name="videos[]" accept="video/*" multiple>
-                            </div>
-                        </div>
-                        <!--end col-->
                         <div class="col-lg-12">
                             <div class="mb-3 pb-2">
                                 <label for="exampleFormControlTextarea" class="form-label">Description</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea" required name="description" rows="3">{{$project->description}}</textarea>
+                                <textarea class="form-control" id="content" name="description" placeholder="Enter the Description" rows="10">{!! $project->description !!}</textarea>
                             </div>
                         </div>
                         <!--end col-->
@@ -74,7 +83,6 @@
                                 <button type="submit" class="btn btn-secondary">Save Changes</button>
                             </div>
                         </div>
-                        <!--end col-->
                     </div>
                 </div>
             </div>
@@ -88,51 +96,18 @@
 <script src="{{asset('clientSideAssets/jquery/jquery-3.7.1.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('designer_assets/js/toastify.js')}}"></script>
 <script>
-    var $vidUpload = $("#vidGal");
-    $vidUpload.change(function() {
-        if (parseInt($vidUpload.get(0).files.length) > 3) {
-            alert("You are only allowed to upload a maximum of 3 videos");
-        }
-        // iterate  and if any file is greater than 10mb then alert with that filename
-        for (var i = 0; i < $vidUpload.get(0).files.length; i++) {
-            if ($vidUpload.get(0).files[i].size > 10000000) {
-                // toast 
-                Toastify({
-                    text: "File " + $vidUpload.get(0).files[i].name + " is greater than 10mb. Please compress it before uploading.",
-                    duration: 5000,
-                    close: true,
-                    gravity: "top",
-                    position: 'right',
-                    backgroundColor: "linear-gradient(to right, #ff416c, #ff4b2b)",
-                }).showToast();
-                // reset the input field and return
-                $vidUpload.val('');
-                return;
+    var bannerInput = document.getElementById('banner');
+    var bannerPreview = document.getElementById('bannerPreview');
+    bannerInput.addEventListener('change', function() {
+        var file = this.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                bannerPreview.src = reader.result;
             }
+            reader.readAsDataURL(file);
         }
     });
-
-    var $imgUpload = $("#imgGal");
-    $imgUpload.change(function() {
-        for (var i = 0; i < $imgUpload.get(0).files.length; i++) {
-            // each image must be less than 2 mbs
-            if ($imgUpload.get(0).files[i].size > 2000000) {
-                // toast 
-                Toastify({
-                    text: "File " + $imgUpload.get(0).files[i].name + " is greater than 2mb. Please compress it before uploading.",
-                    duration: 5000,
-                    close: true,
-                    gravity: "top",
-                    position: 'right',
-                    backgroundColor: "linear-gradient(to right, #ff416c, #ff4b2b)",
-                }).showToast();
-                // reset the input field and return
-                $imgUpload.val('');
-                return;
-            }
-        }
-    });
-
     document.addEventListener('DOMContentLoaded', function() {
         var error = "{{session('error') ?? ''}}";
         if (error) {
@@ -146,6 +121,104 @@
             }).showToast();
         }
 
+    });
+</script>
+<script>
+    CKEDITOR.ClassicEditor.create(document.getElementById("content"), {
+        ckfinder: {
+            uploadUrl: "{{ route('ckeditor.upload').'?_token='.csrf_token() }}"
+        },
+        toolbar: {
+            items: [
+                'selectAll', '|',
+                'heading', '|',
+                'bold', 'italic', 'underline', 'removeFormat', '|',
+                'undo', 'redo',
+                'fontSize', '|',
+                'alignment', '|',
+                'link', 'insertImage', 'blockQuote', 'mediaEmbed', '|',
+            ],
+        },
+        list: {
+            properties: {
+                styles: true,
+                startIndex: true,
+                reversed: true
+            }
+        },
+        heading: {
+            options: [{
+                    model: 'paragraph',
+                    title: 'Paragraph',
+                    class: 'ck-heading_paragraph'
+                },
+                {
+                    model: 'heading1',
+                    view: 'h1',
+                    title: 'Heading 1',
+                    class: 'ck-heading_heading1'
+                },
+                {
+                    model: 'heading2',
+                    view: 'h2',
+                    title: 'Heading 2',
+                    class: 'ck-heading_heading2'
+                },
+                {
+                    model: 'heading3',
+                    view: 'h3',
+                    title: 'Heading 3',
+                    class: 'ck-heading_heading3'
+                },
+            ]
+        },
+        fontSize: {
+            options: [10, 12, 14, 'default', 18, 20, 22],
+            supportAllValues: true
+        },
+
+        link: {
+            decorators: {
+                addTargetToExternalLinks: true,
+                defaultProtocol: 'https://',
+                toggleDownloadable: {
+                    mode: 'manual',
+                    label: 'Downloadable',
+                    attributes: {
+                        download: 'file'
+                    }
+                }
+            }
+        },
+
+        removePlugins: [
+            // These two are commercial, but you can try them out without registering to a trial.
+            // 'ExportPdf',
+            // 'ExportWord',
+            'AIAssistant',
+            'CKBox',
+            'CKFinder',
+            'RealTimeCollaborativeComments',
+            'RealTimeCollaborativeTrackChanges',
+            'RealTimeCollaborativeRevisionHistory',
+            'PresenceList',
+            'Comments',
+            'TrackChanges',
+            'TrackChangesData',
+            'RevisionHistory',
+            'Pagination',
+            'WProofreader',
+            // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
+            // from a local file system (file://) - load this site via HTTP server if you enable MathType.
+            'MathType',
+            // The following features are part of the Productivity Pack and require additional license.
+            'SlashCommand',
+            'Template',
+            'DocumentOutline',
+            'FormatPainter',
+            'TableOfContents',
+            'PasteFromOfficeEnhanced'
+        ]
     });
 </script>
 @endpush

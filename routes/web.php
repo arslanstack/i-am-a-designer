@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminGeneralController;
+use App\Http\Controllers\Admin\DesignerManagementController;
+use App\Http\Controllers\Admin\FeaturedProjectsManagementController;
+use App\Http\Controllers\Admin\ProjectsManagementController;
+use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\Designer\DesignerAuthController;
 use App\Http\Controllers\Designer\DesignerGeneralController;
 use App\Http\Controllers\Designer\ProjectController as DesignerProjectController;
@@ -10,14 +14,15 @@ use App\Http\Controllers\User\UserGeneralController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
-
-
 Route::get('/', [WelcomeController::class, 'welcome'])->name('welcome');
 Route::get('/designers', [WelcomeController::class, 'designers'])->name('designers');
 Route::get('/designer-search', [WelcomeController::class, 'designerSearch'])->name('designerSearch');
 Route::get('/about-us', [WelcomeController::class, 'about'])->name('about');
 Route::get('/contact-us', [WelcomeController::class, 'contact'])->name('contact');
+Route::post('/contact-submit', [WelcomeController::class, 'contactMail'])->name('contactMail');
+Route::post('/saveProject', [WelcomeController::class, 'saveProject'])->name('saveProject');
 Route::get('/privacy-policy', [WelcomeController::class, 'privacy'])->name('privacy');
+Route::post('/increment_view', [WelcomeController::class, 'increment_viewcount'])->name('increment_viewcount');
 Route::get('/designer-profile/{username}', [WelcomeController::class, 'designer_profile'])->name('designer_profile');
 Route::get('/project/{username}/{slug}', [WelcomeController::class, 'project'])->name('project');
 
@@ -30,7 +35,27 @@ Route::group(['prefix' => 'admin'], function () {
     Route::middleware(['auth:admin'])->group(function () {
         Route::get('/dashboard', [AdminGeneralController::class, 'index'])->name('admin.dashboard');
         Route::get('/change-password', [AdminGeneralController::class, 'showChangePswd'])->name('admin.changePswd');
-        Route::post('/change-password', [AdminGeneralController::class, 'changePswd']);
+        Route::post('/update_password', [AdminGeneralController::class, 'updatePswd']);
+
+        Route::group(['prefix'  =>  'users'], function () {
+            Route::get('/', [UserManagementController::class, 'index']);
+            Route::post('update_statuses', [UserManagementController::class, 'update_statuses']);
+            Route::get('detail/{id}', [UserManagementController::class, 'user_details']);
+        });
+        Route::group(['prefix'  =>  'designers'], function () {
+            Route::get('/', [DesignerManagementController::class, 'index']);
+            Route::post('update_statuses', [DesignerManagementController::class, 'update_statuses']);
+            Route::get('detail/{id}', [DesignerManagementController::class, 'designer_details']);
+        });
+        Route::group(['prefix'  =>  'projects'], function () {
+            Route::get('/', [ProjectsManagementController::class, 'index']);
+            Route::post('update_statuses', [ProjectsManagementController::class, 'update_statuses']);
+            Route::post('update_featured', [ProjectsManagementController::class, 'update_featured']);
+            Route::get('detail/{id}', [ProjectsManagementController::class, 'project_details']);
+        });
+        Route::group(['prefix'  =>  'featured_projects'], function () {
+            Route::get('/', [FeaturedProjectsManagementController::class, 'index']);
+        });
     });
 });
 
@@ -67,6 +92,7 @@ Route::group(['prefix' => 'designer'], function () {
         Route::get('/resend-verify-email', [DesignerGeneralController::class, 'resendVerifyMail'])->name('designer.resendVerificationMail');
     });
 });
+
 Route::group(['prefix' => 'user'], function () {
     Route::get('/', [UserAuthController::class, 'showLogin'])->name('user.login');
     Route::get('/login', [UserAuthController::class, 'showLogin'])->name('user.login');
@@ -86,6 +112,7 @@ Route::group(['prefix' => 'user'], function () {
             Route::get('/profile', [UserGeneralController::class, 'showProfile'])->name('user.profile');
             Route::post('/update-profile', [UserGeneralController::class, 'updateProfile'])->name('user.updateProfile');
             Route::get('/saved-projects', [UserGeneralController::class, 'savedProjects'])->name('user.savedProjects');
+            Route::get('/removesavedproject/{id}', [UserGeneralController::class, 'removesavedproject'])->name('user.removesavedproject');
         });
         Route::get('/security', [UserGeneralController::class, 'showsecurity'])->name('user.security');
         Route::post('/change-password', [UserGeneralController::class, 'changePswd'])->name('user.changePswd');
@@ -94,3 +121,4 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 Route::get('/home', [WelcomeController::class, 'home'])->name('home');
+Route::post('ckeditor_upload', [DesignerGeneralController::class, 'ckeditor_upload'])->name('ckeditor.upload');

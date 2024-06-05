@@ -128,7 +128,7 @@
                                 <input type="password" name="password" required class="form-control" id="floatingPassword" placeholder="Password" />
                                 <label for="floatingPassword">Password</label>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Login</button>
+                            <button type="submit" class="btn btn-primary w-100" style="background-color:#9C8A4A; border:1px solid #9C8A4A; color: white;">Login</button>
                             <div class="d-flex justify-content-center py-2">
                                 <div>
                                     <a href="{{route('designer.reset')}}" class="text-decoration-none">Forgot Password?</a>

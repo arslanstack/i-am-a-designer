@@ -23,61 +23,39 @@
 @endpush
 @section('content')
 <!-- Slider Hero Section -->
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->
-        <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
-    </div>
+<!-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <!-- <div class="overlay"></div> -->
             <img src="{{asset('/clientSideAssets/images/hero-new.png')}}" class="d-block w-100" alt="..." />
-            <div class="carousel-caption text-black">
-                <!-- <div class="hero">
-                    <p>The Worlds Destination for jewelry design</p>
-                    <h1>Find Dream Designers</h1>
-                    <small>
-                        Get inspired by the work of thousands of top-rated jewelry
-                        designers around the world.</small>
-                    <div class="mt-2">
-                        <a href="{{route('designers')}}" style="color:black; text-decoration: none;">
-                            Search Now<svg width="18" height="18" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2.25 18.715c0-3.003.677-5.402 2.011-7.137 1.612-2.094 4.157-3.223 7.574-3.363v-4.84l9.915 8.438-9.915 8.437v-4.812c-2.075.056-3.64.356-4.888.93-1.348.621-2.325 1.55-3.379 2.752L2.25 20.625v-1.91Z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div> -->
+            <div class="car-caption text-black">
+                <p>The Worlds Destination for Designs</p>
+                <button href="{{route('designers')}}" class="btn btn-sm" style="background-color:#9C8A4A; border:1px solid #9C8A4A; color: white;">
+                    Find Dream Designers
+                </button>
             </div>
         </div>
-        <!-- 
-        <div class="carousel-item">
-            <div class="overlay"></div>
-            <img src="{{asset('/clientSideAssets/plugin/img/slide-img-2.jpg')}}" class="d-block w-100" alt="..." />
-            <div class="carousel-caption text-black">
-                <div class="hero">
-                    <p>Over 3 thousand ready-to-work creatives!</p>
-                    <h1>Find Inspiring Designs</h1>
-                    <small>
-                        The world's leading brands use 'I am a designer' to hire creative talent. </small>
-                    <div class="mt-2">
-                        <a href="{{route('designers')}}" style="color:black; text-decoration: none;">
-                            Search Now<svg width="18" height="18" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2.25 18.715c0-3.003.677-5.402 2.011-7.137 1.612-2.094 4.157-3.223 7.574-3.363v-4.84l9.915 8.438-9.915 8.437v-4.812c-2.075.056-3.64.356-4.888.93-1.348.621-2.325 1.55-3.379 2.752L2.25 20.625v-1.91Z"></path>
-                            </svg>
-                        </a>
-                    </div>
+    </div>
+</div> -->
+
+<div class="hero-imgg">
+    <div class=" text-black py-5">
+        <div class="row">
+            <div class="col-12  col-md-7">
+
+            </div>
+            <div class="col-12 col-md-5 car-caption">
+                <div class="overlayer"></div>
+                <div class="text-center ctaaa p-5 ">
+                    <p>The Worlds Destination for Designs</p>
+                    <button href="{{route('designers')}}" class="btn btn-sm" style="background-color:#9C8A4A; border:1px solid #9C8A4A; color: white;">
+                        Find Dream Designers
+                    </button>
                 </div>
             </div>
-        </div> -->
+        </div>
+
     </div>
-    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button> -->
 </div>
 <!-- Masonary Gallery-->
 
@@ -90,7 +68,7 @@
 
 <div class="container">
     <ul class="grid effect-1" id="grid">
-        @foreach($projects as $item)
+        @foreach($featured_projects as $item)
         <li>
             <a href="{{route('project', ['username' => $item->designer['username'], 'slug' => $item->slug])}}" style="text-decoration: none;"><img src="{{asset('/uploads/projects/' . $item->banner)}}" />
             </a>
@@ -106,35 +84,40 @@
         <p class="py-2" style="font-size: 20px;">Discover the elegance of creative expression, crafted in precious metals and stones.</p>
     </div>
     <div class="row">
+        @foreach($projects as $item)
         <div class="col-lg-3 col-12">
             <div class="card border-0 my-3">
-                <div class="inspiring-image" style="height: 200px">
-                    <img src="{{asset('/clientSideAssets/images/car1.jpg')}}" class="card-img-top" alt="..." />
-                    <div class="image-overlay">
-                        <span class="overlay-text">
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="mb-0 mt-2 text-white">Bridgetown Collection</p>
+                <a href="{{route('project', ['username' => $item->designer['username'], 'slug' => $item->slug])}}">
+                    <div class="inspiring-image" style="height: 200px">
+                        <img src="{{asset('/uploads/projects/' . $item->banner)}}" class="card-img-top" alt="..." />
+                        <div class="image-overlay">
+                            <span class="overlay-text">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="mb-0 mt-2 text-white">{{$item->title}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </span>
+                            </span>
+                        </div>
                     </div>
-                </div>
+                </a>
 
                 <div class="card-body px-0 py-1 inspiring-text">
                     <div class="d-flex justify-content-between">
-                        <div>
-                            <div class="d-flex">
-                                <div>
-                                    <img src="{{asset('/clientSideAssets/images/matty.avif')}}" style="border-radius: 60px" width="20px" height="20px" alt="" />
-                                </div>
-                                <div class="mx-1">
-                                    <span>Mattey Corbalorano</span>
+                        <a href="{{route('designer_profile', $item->designer->username)}}" style="text-decoration: none;">
+                            <div>
+                                <div class="d-flex">
+                                    <div>
+                                        <img src="{{asset('/uploads/designers/images/' . $item->designer->image)}}" style="border-radius: 60px" width="20px" height="20px" alt="" />
+                                    </div>
+                                    <div class="mx-1">
+                                        <span>{{$item->designer->name}}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
 
-                        <div>
+                        <!-- <div>
                             <div class="mx-1">
                                 <svg class="heart" width="18" height="18" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
@@ -146,332 +129,12 @@
                                 </svg>
                                 <span class="amount">52k</span>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-12">
-            <div class="card border-0 my-3">
-                <div class="inspiring-image" style="height: 200px">
-                    <img src="{{asset('/clientSideAssets/images/car2.jpg')}}" class="card-img-top" alt="..." />
-                    <div class="image-overlay">
-                        <span class="overlay-text">
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="mb-0 mt-2 text-white">Bridgetown Collection</p>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="card-body px-0 py-1 inspiring-text">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <div class="d-flex">
-                                <div>
-                                    <img src="{{asset('/clientSideAssets/images/matty.avif')}}" style="border-radius: 60px" width="20px" height="20px" alt="" />
-                                </div>
-                                <div class="mx-1">
-                                    <span>Mattey Corbalorano</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="mx-1">
-                                <svg class="heart" width="18" height="18" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
-                                </svg>
-                                <span class="amount">228</span>
-                                <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
-                                    <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
-                                </svg>
-                                <span class="amount">52k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-12">
-            <div class="card border-0 my-3">
-                <div class="inspiring-image" style="height: 200px">
-                    <img src="{{asset('/clientSideAssets/images/car3.jpg')}}" class="card-img-top" alt="..." />
-                    <div class="image-overlay">
-                        <span class="overlay-text">
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="mb-0 mt-2 text-white">Bridgetown Collection</p>
-                                </div>
-                                <!--  -->
-                            </div>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="card-body px-0 py-1 inspiring-text">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <div class="d-flex">
-                                <div>
-                                    <img src="{{asset('/clientSideAssets/images/matty.avif')}}" style="border-radius: 60px" width="20px" height="20px" alt="" />
-                                </div>
-                                <div class="mx-1">
-                                    <span>Mattey Corbalorano</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="mx-1">
-                                <svg class="heart" width="18" height="18" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
-                                </svg>
-                                <span class="amount">228</span>
-                                <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
-                                    <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
-                                </svg>
-                                <span class="amount">52k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-12">
-            <div class="card border-0 my-3">
-                <div class="inspiring-image" style="height: 200px">
-                    <img src="{{asset('/clientSideAssets/images/car4.jpg')}}" class="card-img-top" alt="..." />
-                    <div class="image-overlay">
-                        <span class="overlay-text">
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="mb-0 mt-2 text-white">Bridgetown Collection</p>
-                                </div>
-                                <!--  -->
-                            </div>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="card-body px-0 py-1 inspiring-text">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <div class="d-flex">
-                                <div>
-                                    <img src="{{asset('/clientSideAssets/images/matty.avif')}}" style="border-radius: 60px" width="20px" height="20px" alt="" />
-                                </div>
-                                <div class="mx-1">
-                                    <span>Mattey Corbalorano</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="mx-1">
-                                <svg class="heart" width="18" height="18" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
-                                </svg>
-                                <span class="amount">228</span>
-                                <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
-                                    <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
-                                </svg>
-                                <span class="amount">52k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-12">
-            <div class="card border-0 my-3">
-                <div class="inspiring-image" style="height: 200px">
-                    <img src="{{asset('/clientSideAssets/images/car5.jpg')}}" class="card-img-top" alt="..." />
-                    <div class="image-overlay">
-                        <span class="overlay-text">
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="mb-0 mt-2 text-white">Bridgetown Collection</p>
-                                </div>
-                                <!--  -->
-                            </div>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="card-body px-0 py-1 inspiring-text">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <div class="d-flex">
-                                <div>
-                                    <img src="{{asset('/clientSideAssets/images/matty.avif')}}" style="border-radius: 60px" width="20px" height="20px" alt="" />
-                                </div>
-                                <div class="mx-1">
-                                    <span>Mattey Corbalorano</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="mx-1">
-                                <svg class="heart" width="18" height="18" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
-                                </svg>
-                                <span class="amount">228</span>
-                                <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
-                                    <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
-                                </svg>
-                                <span class="amount">52k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-12">
-            <div class="card border-0 my-3">
-                <div class="inspiring-image" style="height: 200px">
-                    <img src="{{asset('/clientSideAssets/images/car6.jpg')}}" class="card-img-top" alt="..." />
-                    <div class="image-overlay">
-                        <span class="overlay-text">
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="mb-0 mt-2 text-white">Bridgetown Collection</p>
-                                </div>
-                                <!--  -->
-                            </div>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="card-body px-0 py-1 inspiring-text">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <div class="d-flex">
-                                <div>
-                                    <img src="{{asset('/clientSideAssets/images/matty.avif')}}" style="border-radius: 60px" width="20px" height="20px" alt="" />
-                                </div>
-                                <div class="mx-1">
-                                    <span>Mattey Corbalorano</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="mx-1">
-                                <svg class="heart" width="18" height="18" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
-                                </svg>
-                                <span class="amount">228</span>
-                                <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
-                                    <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
-                                </svg>
-                                <span class="amount">52k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-12">
-            <div class="card border-0 my-3">
-                <div class="inspiring-image" style="height: 200px">
-                    <img src="{{asset('/clientSideAssets/images/car7.jpg')}}" class="card-img-top" alt="..." />
-                    <div class="image-overlay">
-                        <span class="overlay-text">
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="mb-0 mt-2 text-white">Bridgetown Collection</p>
-                                </div>
-                                <!--  -->
-                            </div>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="card-body px-0 py-1 inspiring-text">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <div class="d-flex">
-                                <div>
-                                    <img src="{{asset('/clientSideAssets/images/matty.avif')}}" style="border-radius: 60px" width="20px" height="20px" alt="" />
-                                </div>
-                                <div class="mx-1">
-                                    <span>Mattey Corbalorano</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="mx-1">
-                                <svg class="heart" width="18" height="18" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
-                                </svg>
-                                <span class="amount">228</span>
-                                <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
-                                    <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
-                                </svg>
-                                <span class="amount">52k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-12">
-            <div class="card border-0 my-3">
-                <div class="inspiring-image" style="height: 200px">
-                    <img src="{{asset('/clientSideAssets/images/car8.jpg')}}" class="card-img-top" alt="..." />
-                    <div class="image-overlay">
-                        <span class="overlay-text">
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class="mb-0 mt-2 text-white">Bridgetown Collection</p>
-                                </div>
-                                <!--  -->
-                            </div>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="card-body px-0 py-1 inspiring-text">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <div class="d-flex">
-                                <div>
-                                    <img src="{{asset('/clientSideAssets/images/matty.avif')}}" style="border-radius: 60px" width="20px" height="20px" alt="" />
-                                </div>
-                                <div class="mx-1">
-                                    <span>Mattey Corbalorano</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div class="mx-1">
-                                <svg class="heart" width="18" height="18" fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="m12 21-.421-.281c-2.006-1.34-4.543-2.853-6.422-5.078-1.98-2.344-2.93-4.75-2.907-7.36C2.28 5.37 4.616 3 7.457 3c2.255 0 3.755 1.313 4.544 2.26.788-.947 2.287-2.26 4.543-2.26 2.841 0 5.177 2.37 5.206 5.28.027 2.61-.923 5.016-2.906 7.36-1.879 2.226-4.416 3.74-6.422 5.079l-.421.281Z"></path>
-                                </svg>
-                                <span class="amount">228</span>
-                                <svg width="18" height=18 fill="#ccc" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
-                                    <path d="M18.507 6.618C16.457 5.213 14.264 4.5 11.99 4.5c-2.048 0-4.045.61-5.934 1.804C4.149 7.51 2.28 9.704.75 12c1.238 2.063 2.933 4.183 4.697 5.4 2.024 1.393 4.225 2.1 6.542 2.1 2.297 0 4.493-.706 6.53-2.1 1.792-1.228 3.499-3.346 4.731-5.4-1.237-2.036-2.948-4.151-4.743-5.382ZM12 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Z"></path>
-                                </svg>
-                                <span class="amount">52k</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 

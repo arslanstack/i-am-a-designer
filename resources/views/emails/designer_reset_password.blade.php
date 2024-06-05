@@ -12,7 +12,7 @@
     <div style="background-color: #f4f4f4; padding: 20px;">
         <div style="background-color: #fff; padding: 20px; border-radius: 10px;">
             <div style="text-align: center;">
-                <img src="{{asset('/clientSideAssets/images/logo.png')}}" alt="" />
+                <img src="{{url('/clientSideAssets/images/logo.png')}}" alt="" />
             </div>
             <h2 style="text-align: center;">Reset Your Account Password</h2>
             <p style="text-align: center;">Please click the button below to reset your account password.</p>

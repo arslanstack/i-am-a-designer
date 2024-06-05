@@ -15,7 +15,7 @@
         </div>
     </div>
 </div>
-<form action="{{route('designer.updateProfile')}}" method="post" id="updateDesignerProfileForm">
+<form action="{{route('designer.updateProfile')}}" method="post" enctype="multipart/form-data" id="updateDesignerProfileForm">
     @csrf
     <div class="position-relative mx-n4 mt-n4">
         <div class="profile-wid-bg profile-setting-img">
@@ -61,37 +61,43 @@
                             <h5 class="card-title mb-0">Portfolio/Socials</h5>
                         </div>
                     </div>
-                    <div class="mb-3 d-flex">
-                        <div class="avatar-xs d-block flex-shrink-0 me-3">
-                            <span class="avatar-title rounded-circle fs-16 bg-body text-body">
-                                <i class="ri-facebook-fill"></i>
-                            </span>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-3 d-flex">
+                                <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                    <span class="avatar-title rounded-circle fs-16 bg-body text-body">
+                                        <i class="ri-facebook-fill"></i>
+                                    </span>
+                                </div>
+                                <input type="url" class="form-control" name="facebook" id="facebook" placeholder="https://facebook.com/" value="{{$designer->facebook ?? ''}}">
+                            </div>
+                            <div class="mb-3 d-flex">
+                                <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                    <span class="avatar-title rounded-circle fs-16 bg-body text-body">
+                                        <i class="ri-instagram-fill"></i>
+                                    </span>
+                                </div>
+                                <input type="url" class="form-control" name="instagram" id="instagram" placeholder="https://instagram.com/" value="{{$designer->instagram ?? ''}}">
+                            </div>
                         </div>
-                        <input type="url" class="form-control" name="facebook" id="facebook" placeholder="https://facebook.com/" value="{{$designer->facebook ?? ''}}">
-                    </div>
-                    <div class="mb-3 d-flex">
-                        <div class="avatar-xs d-block flex-shrink-0 me-3">
-                            <span class="avatar-title rounded-circle fs-16 bg-body text-body">
-                                <i class="ri-instagram-fill"></i>
-                            </span>
+                        <div class="col-lg-6">
+                            <div class="mb-3 d-flex">
+                                <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                    <span class="avatar-title rounded-circle fs-16 bg-body text-body">
+                                        <i class="ri-dribbble-fill"></i>
+                                    </span>
+                                </div>
+                                <input type="url" class="form-control" name="dribbble" id="dribble" placeholder="https://dribbble.com/" value="{{$designer->dribbble ?? ''}}">
+                            </div>
+                            <div class="d-flex">
+                                <div class="avatar-xs d-block flex-shrink-0 me-3">
+                                    <span class="avatar-title rounded-circle fs-16 bg-body text-body">
+                                        <i class="ri-pinterest-fill"></i>
+                                    </span>
+                                </div>
+                                <input type="url" class="form-control" name="pinterest" id="pinterest" placeholder="https://pinterest.com/" value="{{$designer->pinterest ?? ''}}">
+                            </div>
                         </div>
-                        <input type="url" class="form-control" name="instagram" id="instagram" placeholder="https://instagram.com/" value="{{$designer->instagram ?? ''}}">
-                    </div>
-                    <div class="mb-3 d-flex">
-                        <div class="avatar-xs d-block flex-shrink-0 me-3">
-                            <span class="avatar-title rounded-circle fs-16 bg-body text-body">
-                                <i class="ri-dribbble-fill"></i>
-                            </span>
-                        </div>
-                        <input type="url" class="form-control" name="dribbble" id="dribble" placeholder="https://dribbble.com/" value="{{$designer->dribbble ?? ''}}">
-                    </div>
-                    <div class="d-flex">
-                        <div class="avatar-xs d-block flex-shrink-0 me-3">
-                            <span class="avatar-title rounded-circle fs-16 bg-body text-body">
-                                <i class="ri-pinterest-fill"></i>
-                            </span>
-                        </div>
-                        <input type="url" class="form-control" name="pinterest" id="pinterest" placeholder="https://pinterest.com/" value="{{$designer->pinterest ?? ''}}">
                     </div>
                 </div>
             </div>
@@ -151,14 +157,12 @@
                                 <input type="text" value="{{$designer->country ?? ''}}" class="form-control" id="country" name="country" placeholder="Portugal">
                             </div>
                         </div>
-                        <!--end col-->
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="cityInput" class="form-label">Resume</label> <small>(jpg, png, Less than 2Mb)</small>
-                                <input type="file" class="form-control" id="resume" name="resume" accept="image/*" />
+                                <label for="" class="form-label">Bio</label>
+                                <input type="text" value="{{$designer->bio ?? ''}}" class="form-control" id="bio" name="bio" placeholder="Lorem Ipsum">
                             </div>
                         </div>
-                        <!--end col-->
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label for="countryInput" class="form-label">Open To Work</label>
@@ -168,6 +172,21 @@
                                 </select>
                             </div>
                         </div>
+                        <!--end col-->
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="cityInput" class="form-label">Resume</label> <small>(jpg, png, Less than 2Mb)</small>
+                                <input type="file" class="form-control" id="resume" name="resume" accept="image/*" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="cityInput" class="form-label">Intro Video</label> <small>(mp4, mkv, Less than 10Mb)</small>
+                                <input type="file" class="form-control" id="introVideo" name="introVideo" />
+                            </div>
+                        </div>
+                        <!--end col-->
+
                         <div class="col-lg-12">
                             <div class="mb-3 pb-2">
                                 <label for="exampleFormControlTextarea" class="form-label">About Me</label>
@@ -203,6 +222,15 @@
             this.value = "";
         }
     };
+
+    // const introVideo = document.getElementById("introVideo");
+
+    // introVideo.onchange = function() {
+    //     if (this.files[0].size > 10485760) {
+    //         alert("Please upload a video file less than 10Mb! You can also compress videos using online tools.");
+    //         this.value = "";
+    //     }
+    // };
 
     var profile_image = document.getElementById("profile-img-file-input");
 

@@ -13,8 +13,9 @@
             </div>
 
             <p class="text-muted">
-                We’re on a mission to build the world’s best community for creatives
-                to share, grow, and get hired.
+                <!-- We’re on a mission to build the world’s best community for creatives
+                to share, grow, and get hired. -->
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. In animi quidem quam dicta quis impedit est consequuntur aut soluta rem laborum nemo, odit delectus officiis, dolorum quo ipsum quaerat cupiditate.
             </p>
         </div>
     </div>

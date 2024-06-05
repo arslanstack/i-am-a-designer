@@ -142,7 +142,7 @@
                             </div>
 
 
-                            <button type="submit" class="btn btn-primary w-100">Register</button>
+                            <button type="submit" class="btn btn-primary w-100" style="background-color:#9C8A4A; border:1px solid #9C8A4A; color: white;">Register</button>
 
                             <div class="text-center py-3">
                                 <small class="text-muted">Already have an account?

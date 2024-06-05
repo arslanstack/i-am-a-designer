@@ -98,6 +98,7 @@ class DesignerGeneralController extends Controller
         $designer->phone = $request->phone ?? null;
         $designer->city = $request->city ?? null;
         $designer->country = $request->country ?? null;
+        $designer->bio = $request->bio ?? null;
         $designer->about = $request->about ?? null;
         $designer->facebook = $request->facebook ?? null;
         $designer->instagram = $request->instagram ?? null;
@@ -141,7 +142,18 @@ class DesignerGeneralController extends Controller
             $resume->move(public_path('uploads/designers/resumes'), $resumeName);
             $designer->resume = $resumeName;
         }
-
+        if ($request->hasFile('introVideo')) {
+            if ($designer->introVideo != '' || $designer->introVideo != null) {
+                $introVideoPath = public_path('uploads/designers/intros/' . $designer->introVideo);
+                if (file_exists($introVideoPath)) {
+                    unlink($introVideoPath);
+                }
+            }
+            $introVideo = $request->file('introVideo');
+            $introVideoName = $designer->username . time() . '.' . $introVideo->extension();
+            $introVideo->move(public_path('uploads/designers/intros'), $introVideoName);
+            $designer->introVideo = $introVideoName;
+        }
         $query = $designer->save();
         if ($query) {
 
@@ -203,6 +215,21 @@ class DesignerGeneralController extends Controller
                 'success' => false,
                 'message' => 'Old password is incorrect',
             ]);
+        }
+    }
+
+    public function ckeditor_upload(Request $request)
+    {
+        // dd($request->all());
+        if ($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+
+            $request->file('upload')->move(public_path('uploads/projects'), $fileName);
+            $url = asset('uploads/projects/' . $fileName);
+            return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => $url]);
         }
     }
 }

@@ -43,13 +43,13 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <p class="fw-medium text-muted mb-0">Likes</p>
-                                    <h4 class="mt-4 fs-22 ff-secondary fw-semibold"><span class="counter-value" data-target="129">0</span></h4>
+                                    <p class="fw-medium text-muted mb-0">Saves</p>
+                                    <h4 class="mt-4 fs-22 ff-secondary fw-semibold"><span class="counter-value" data-target="{{count_saves()}}">0</span></h4>
                                 </div>
                                 <div>
                                     <div class="avatar-sm flex-shrink-0">
                                         <span class="avatar-title bg-info-subtle rounded-circle fs-2">
-                                            <i data-feather="heart" class="text-info"></i>
+                                            <i data-feather="bookmark" class="text-info"></i>
                                         </span>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                             <div class="d-flex justify-content-between">
                                 <div>
                                     <p class="fw-medium text-muted mb-0">Views</p>
-                                    <h4 class="mt-4 fs-22 ff-secondary fw-semibold"><span class="counter-value" data-target="76">0</span></h4>
+                                    <h4 class="mt-4 fs-22 ff-secondary fw-semibold"><span class="counter-value" data-target="{{count_visits()}}">0</span></h4>
                                 </div>
                                 <div>
                                     <div class="avatar-sm flex-shrink-0">

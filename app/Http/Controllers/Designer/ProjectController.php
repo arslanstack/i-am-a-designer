@@ -40,6 +40,7 @@ class ProjectController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
+            'subtitle' => 'required|string',
             'description' => 'required|string',
             'banner' => 'required|image',
         ]);
@@ -50,39 +51,16 @@ class ProjectController extends Controller
         $designer = Auth::guard('designer')->user();
         $project = new Project();
         $project->title = $request->title;
+        $project->subtitle = $request->subtitle;
         $project->description = $request->description;
         $project->designer_id = $designer->id;
         $project->slug = $slug;
-
         if ($request->hasFile('banner')) {
             $file = $request->file('banner');
             $fileName = 'banner-' . $slug . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/projects'), $fileName);
             $project->banner = $fileName;
         }
-        // iterate through a multiple file input images[] and store each file in the uploads/projects directory and maintain an array of image names
-        $images = [];
-        if ($request->hasFile('images')) {
-            $i = 1;
-            foreach ($request->file('images') as $file) {
-                $i++;
-                $fileName = $i . '-img-' . $slug . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('uploads/projects'), $fileName);
-                $images[] = $fileName;
-            }
-        }
-        $videos = [];
-        if ($request->hasFile('videos')) {
-            $i = 1;
-            foreach ($request->file('videos') as $file) {
-                $i++;
-                $fileName = $i . '-vid-' . $slug . '-' . time() . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('uploads/projects'), $fileName);
-                $videos[] = $fileName;
-            }
-        }
-        $project->images = json_encode($images);
-        $project->videos = json_encode($videos);
         $query = $project->save();
         if ($query) {
             return redirect()->route('designer.projects')->with('success', 'Project added successfully');
@@ -94,6 +72,7 @@ class ProjectController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
+            'subtitle' => 'required|string',
             'description' => 'required|string',
         ]);
         if ($validator->fails()) {
@@ -101,6 +80,7 @@ class ProjectController extends Controller
         }
         $project = Project::find($request->id);
         $project->title = $request->title;
+        $project->subtitle = $request->subtitle;
         $project->description = $request->description;
         $slug = strtolower(str_replace(' ', '-', $request->title)) . '-' . time();
         $project->slug = $slug;
@@ -114,39 +94,6 @@ class ProjectController extends Controller
             $file->move(public_path('uploads/projects'), $fileName);
             $project->banner = $fileName;
         }
-        // iterate through a multiple file input images[] and store each file in the uploads/projects directory and maintain an array of image names
-        $images = [];
-        if ($request->hasFile('images')) {
-            foreach (json_decode($project->images) as $image) {
-                if (file_exists(public_path('uploads/projects/' . $image))) {
-                    unlink(public_path('uploads/projects/' . $image));
-                }
-            }
-            $i = 1;
-            foreach ($request->file('images') as $file) {
-                $i++;
-                $fileName = $i . '-img-' . $slug . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('uploads/projects'), $fileName);
-                $images[] = $fileName;
-            }
-        }
-        $videos = [];
-        if ($request->hasFile('videos')) {
-            foreach (json_decode($project->videos) as $video) {
-                if (file_exists(public_path('uploads/projects/' . $video))) {
-                    unlink(public_path('uploads/projects/' . $video));
-                }
-            }
-            $i = 1;
-            foreach ($request->file('videos') as $file) {
-                $i++;
-                $fileName = $i . '-vid-' . $slug . '-' . time() . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('uploads/projects'), $fileName);
-                $videos[] = $fileName;
-            }
-        }
-        $project->images = json_encode($images);
-        $project->videos = json_encode($videos);
         $query = $project->save();
         if ($query) {
             return redirect()->route('designer.projects')->with('success', 'Project updated successfully');

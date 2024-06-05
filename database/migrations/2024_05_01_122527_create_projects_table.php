@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('banner');
-            $table->text('description');
-            $table->mediumText('images');
-            $table->mediumText('videos');
+            $table->mediumText('description');
+            $table->mediumText('images')->nullable();
+            $table->mediumText('videos')->nullable();
             $table->integer('views')->default(0);
             $table->integer('likes')->default(0);
             $table->integer('saves')->default(0);
