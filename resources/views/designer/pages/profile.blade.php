@@ -101,6 +101,31 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="flex-grow-1">
+                            <h5 class="card-title mb-0">Designer Category</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row">
+                                @foreach($categories as $category)
+                                <div class="col-2">
+                                    <div class="form-check">
+                                        <label class="form-check" for="{{$category->slug}}">
+                                            <input class="form-check-input" type="checkbox" name="{{$category->slug}}" value="{{$category->slug}}" id="{{$category->slug}}" {{$category->show == 2 ? 'checked' : ''}}>
+                                            {{$category->title}}
+                                        </label>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--end card-->
         </div>
         <!--end col-->
@@ -120,19 +145,22 @@
                                 <input type="text" value="{{$designer->name ?? ''}}" class="form-control" name="name" required placeholder="John Doe">
                             </div>
                         </div>
-                        <!--end col-->
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="lastnameInput" class="form-label">Username</label>
-                                <input type="text" value="{{$designer->username ?? ''}}" class="form-control" name="username" required placeholder="johnthejeweler">
+                                <label for="countryInput" class="form-label">Define Yourself (I am a designer)</label>
+                                <select class="form-control" data-choices name="definition" required>
+                                    <option selected disabled>Select an option that defines you</option>
+                                    @foreach($categories as $category)
+                                    <option value="{{$category->slug}}" {{$designer->definition == $category->slug ? 'selected' : ''}}> {{$category->title}} designer</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <!--end col-->
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="phonenumberInput" class="form-label">Phone
-                                    Number</label>
-                                <input type="text" value="{{$designer->phone ?? ''}}" class="form-control" id="phonenumberInput" name="phone" placeholder="+(1) 987 541 6543">
+                                <label for="lastnameInput" class="form-label">Username</label>
+                                <input type="text" value="{{$designer->username ?? ''}}" class="form-control" name="username" required placeholder="johnthejeweler">
                             </div>
                         </div>
                         <!--end col-->
@@ -163,13 +191,12 @@
                                 <input type="text" value="{{$designer->bio ?? ''}}" class="form-control" id="bio" name="bio" placeholder="Lorem Ipsum">
                             </div>
                         </div>
+                        <!--end col-->
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label for="countryInput" class="form-label">Open To Work</label>
-                                <select name="open" id="open" class="form-control">
-                                    <option value="1" {{$designer->open == 0 ? 'selected' : ''}}>No</option>
-                                    <option value="0" {{$designer->open == 0 ? 'selected' : ''}}>Yes</option>
-                                </select>
+                                <label for="phonenumberInput" class="form-label">Phone
+                                    Number</label>
+                                <input type="text" value="{{$designer->phone ?? ''}}" class="form-control" id="phonenumberInput" name="phone" placeholder="+(1) 987 541 6543">
                             </div>
                         </div>
                         <!--end col-->

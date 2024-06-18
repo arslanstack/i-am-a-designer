@@ -24,6 +24,9 @@
             <li class="{{ Request::is('admin/users') ? 'active' : '' }} {{ Request::is('admin/users/detail*') ? 'active' : '' }}">
                 <a href="{{ url('admin/users') }}"><i class="fa fa-users"></i> <span class="nav-label">Client Management</span></a>
             </li>
+            <li class="{{ Request::is('admin/categories') ? 'active' : '' }} {{ Request::is('admin/categories/detail*') ? 'active' : '' }}">
+                <a href="{{ url('admin/categories') }}"><i class="fa fa-tags"></i> <span class="nav-label">Designer Categories</span></a>
+            </li>
             <li class="{{ Request::is('admin/designers') ? 'active' : '' }} {{ Request::is('admin/designers/detail*') ? 'active' : '' }}">
                 <a href="{{ url('admin/designers') }}"><i class="fa fa-user"></i> <span class="nav-label">Designers Management</span></a>
             </li>

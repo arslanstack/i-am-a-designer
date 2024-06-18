@@ -99,7 +99,7 @@
             <div class=" box-2 d-flex flex-column">
                 <div class="mt-3 mx-3">
                     <p class="mb-1 h-1 text-center">Register</p>
-                    <p class="text-muted mb-4 text-center">Share your designs with the world.</p>
+                    <p class="text-muted mb-4 text-center">Register as a designer with us to share your designs with the world.</p>
                     @if(session()->has('errors'))
                     <div class="single-input-item">
                         <div class="alert alert-danger fade show" role="alert">

@@ -3,7 +3,7 @@
         <div class="row pb-2 pt-2">
             <div class="col-lg-2 col-12">
                 <div style="width: 170px" class="footer-image">
-                    <a class="" href="{{route('welcome')}}"><img src="./clientSideAssets/images/logo.png" width="100%" alt="" /></a>
+                    <a class="" href="{{route('welcome')}}"><img src="{{asset('/clientSideAssets/images/logo.png')}}" width="100%" alt="" /></a>
                 </div>
             </div>
             <div class="col-lg-8 col-12">
@@ -60,7 +60,7 @@
         <div class="row">
             <div class="col-lg-6 col-12">
                 <div class="lower-links text-lg-start text-center">
-                    <span>© 2024 I Am Designer</span>
+                    <span>© 2024 I Am A Designer</span>
 
                 </div>
             </div>

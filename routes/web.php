@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminGeneralController;
+use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\DesignerManagementController;
 use App\Http\Controllers\Admin\FeaturedProjectsManagementController;
 use App\Http\Controllers\Admin\ProjectsManagementController;
@@ -41,6 +42,13 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('/', [UserManagementController::class, 'index']);
             Route::post('update_statuses', [UserManagementController::class, 'update_statuses']);
             Route::get('detail/{id}', [UserManagementController::class, 'user_details']);
+        });
+        Route::group(['prefix'  =>  'categories'], function () {
+            Route::get('/', [CategoriesController::class, 'index']);
+            Route::post('/store', [CategoriesController::class, 'store']);
+            Route::post('/show', [CategoriesController::class, 'show']);
+            Route::post('/update', [CategoriesController::class, 'update']);
+            Route::post('/delete', [CategoriesController::class, 'delete']);
         });
         Route::group(['prefix'  =>  'designers'], function () {
             Route::get('/', [DesignerManagementController::class, 'index']);

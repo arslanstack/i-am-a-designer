@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Designer;
 use App\Models\Project;
@@ -17,17 +18,52 @@ class WelcomeController extends Controller
         return view('clientviews.pages.landing', compact('projects', 'featured_projects'));
     }
 
-    public function designers()
+    public function designers(Request $request)
     {
-        $designers = Designer::inRandomOrder()->limit(12)->get();
-        return view('clientviews.pages.designers', compact('designers'));
+
+        if ($request->has('designer_name')) {
+            $categories = Category::all();
+            $designers = Designer::query();
+            $designers = $this->applyNameFilter($designers, $request->designer_name);
+            $designers = $this->applyCategoryFilter($designers, $request->all());
+            $designers = $designers->get();
+            $searchParams = $request->all();
+            // dd($searchParams);
+            return view('clientviews.pages.designers', compact(['designers', 'categories', 'searchParams']));
+        } else {
+            $categories = Category::all();
+            $designers = Designer::all();
+            return view('clientviews.pages.designers', compact('designers', 'categories'));
+        }
     }
-    public function designerSearch(Request $request)
+
+    private function applyCategoryFilter($designers, $request)
     {
-        $name = $request->designer_name;
-        $designers = Designer::where('name', 'like', '%' . $name . '%')->get();
-        return view('clientviews.pages.designers', compact(['designers', 'name']));
+        $categories = Category::all();
+
+        foreach ($categories as $category) {
+            $slug = $category->slug;
+            if (array_key_exists($slug, $request)) {
+                $designers = $designers->whereHas('categories', function ($query) use ($slug) {
+                    $query->where('slug', $slug);
+                });
+            }
+        }
+
+        return $designers;
     }
+
+    private function applyNameFilter($designers, $name)
+    {
+        return $designers->where('name', 'like', '%' . $name . '%');
+    }
+    // public function designerSearch(Request $request)
+    // {
+    //     $categories = Category::all();
+    //     $name = $request->designer_name;
+    //     $designers = Designer::where('name', 'like', '%' . $name . '%')->get();
+    //     return view('clientviews.pages.designers', compact(['designers', 'name', 'categories']));
+    // }
     public function about()
     {
         return view('clientviews.pages.about');

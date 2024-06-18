@@ -251,3 +251,16 @@ if (!function_exists('count_visits')) {
         return $count->view_count;
     }
 }
+if (!function_exists('slugify')) {
+    function slugify($title)
+    {
+        $slug = mb_strtolower(trim($title), 'UTF-8');
+        // Replace non-alphanumeric characters with dashes.
+        $slug = preg_replace('/[^a-z0-9]+/', '-', $slug);
+        // Remove leading and trailing dashes.
+        $slug = trim($slug, '-');
+        // Replace multiple consecutive dashes with a single dash.
+        $slug = preg_replace('/-+/', '-', $slug);
+        return $slug;
+    }
+}

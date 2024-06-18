@@ -47,7 +47,7 @@
             <div class="col-12 col-md-5 car-caption">
                 <div class="overlayer"></div>
                 <div class="text-center ctaaa p-5 ">
-                    <p>The Worlds Destination for Designs</p>
+                    <p>Showcasing Designers. Connecting Opportunities.</p>
                     <button href="{{route('designers')}}" class="btn btn-sm" style="background-color:#9C8A4A; border:1px solid #9C8A4A; color: white;">
                         Find Dream Designers
                     </button>
@@ -57,6 +57,97 @@
 
     </div>
 </div>
+
+<!-- Team Cards -->
+<div class="container">
+    <div class="section-heading text-center pt-5 pb-0">
+        <h1 class="m-0">Our Featured Designers</h1>
+        <p class="py-2" style="font-size: 20px;">Where artistry meets elegance, one gem at a time</p>
+    </div>
+</div>
+<div class="my-4">
+    <div class="wrap-slider" id="js-wrapSlider">
+        <ul class="js-slider">
+            <li class="item">
+                <div class="mx-2">
+                    <div class="card position-relative team my-2">
+                        <img src="{{asset('/clientSideAssets/images/potrait.avif')}}" class="card-img" alt="Sample Image" />
+                        <div class="card-img-overlay pb-4 ms-2">
+                            <div class="card-img-overlay-text pb-2">
+                                <p class="card-text m-0">Dan Mall</p>
+                                <div>
+                                    <small class="card-text">London, UK</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="mx-2">
+                    <div class="card position-relative team my-2">
+                        <img src="{{asset('/clientSideAssets/images/bl-white.webp')}}" class="card-img" alt="Sample Image" />
+                        <div class="card-img-overlay pb-4 ms-2">
+                            <div class="card-img-overlay-text pb-2">
+                                <p class="card-text m-0">Walt Disney</p>
+                                <div>
+                                    <small class="card-text">Texas, US</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="mx-2">
+                    <div class="card position-relative team my-2">
+                        <img src="{{asset('/clientSideAssets/images/chintoo.gif')}}" class="card-img" alt="Sample Image" />
+                        <div class="card-img-overlay pb-4 ms-2">
+                            <div class="card-img-overlay-text pb-2">
+                                <p class="card-text m-0">Elsa Chinto</p>
+                                <div>
+                                    <small class="card-text">Tengah, Singapore</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="mx-2">
+                    <div class="card position-relative team my-2">
+                        <img src="{{asset('/clientSideAssets/images/mcb.webp')}}" class="card-img" alt="Sample Image" />
+                        <div class="card-img-overlay pb-4 ms-2">
+                            <div class="card-img-overlay-text pb-2">
+                                <p class="card-text m-0">Molda Banki</p>
+                                <div>
+                                    <small class="card-text">Tokyo, Japan</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="item">
+                <div class="mx-2">
+                    <div class="card position-relative team my-2">
+                        <img src="{{asset('/clientSideAssets/images/designer.gif')}}" class="card-img" alt="Sample Image" />
+                        <div class="card-img-overlay pb-4 ms-2">
+                            <div class="card-img-overlay-text pb-2">
+                                <p class="card-text m-0">Alfred Augusta</p>
+                                <div class="badge text-dark">I am a designer</div>
+                                <div>
+                                    <small class="card-text">New York, US</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
 <!-- Masonary Gallery-->
 
 <div class="container py-4">
@@ -139,94 +230,7 @@
 </div>
 
 
-<!-- Team Cards -->
-<div class="container">
-    <div class="section-heading text-center pt-5 pb-0">
-        <h1 class="m-0">Our Featured Designers</h1>
-        <p class="py-2" style="font-size: 20px;">Where artistry meets elegance, one gem at a time</p>
-    </div>
-</div>
-<div class="my-4">
-    <div class="wrap-slider" id="js-wrapSlider">
-        <ul class="js-slider">
-            <li class="item">
-                <div class="mx-2">
-                    <div class="card position-relative team my-2">
-                        <img src="{{asset('/clientSideAssets/images/potrait.avif')}}" class="card-img" alt="Sample Image" />
-                        <div class="card-img-overlay pb-4 ms-2">
-                            <div class="card-img-overlay-text pb-2">
-                                <p class="card-text m-0">Dan Mall</p>
-                                <div>
-                                    <small class="card-text">London, UK</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="item">
-                <div class="mx-2">
-                    <div class="card position-relative team my-2">
-                        <img src="{{asset('/clientSideAssets/images/bl-white.webp')}}" class="card-img" alt="Sample Image" />
-                        <div class="card-img-overlay pb-4 ms-2">
-                            <div class="card-img-overlay-text pb-2">
-                                <p class="card-text m-0">Walt Disney</p>
-                                <div>
-                                    <small class="card-text">Texas, US</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="item">
-                <div class="mx-2">
-                    <div class="card position-relative team my-2">
-                        <img src="{{asset('/clientSideAssets/images/chintoo.gif')}}" class="card-img" alt="Sample Image" />
-                        <div class="card-img-overlay pb-4 ms-2">
-                            <div class="card-img-overlay-text pb-2">
-                                <p class="card-text m-0">Elsa Chinto</p>
-                                <div>
-                                    <small class="card-text">Tengah, Singapore</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="item">
-                <div class="mx-2">
-                    <div class="card position-relative team my-2">
-                        <img src="{{asset('/clientSideAssets/images/mcb.webp')}}" class="card-img" alt="Sample Image" />
-                        <div class="card-img-overlay pb-4 ms-2">
-                            <div class="card-img-overlay-text pb-2">
-                                <p class="card-text m-0">Molda Banki</p>
-                                <div>
-                                    <small class="card-text">Tokyo, Japan</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="item">
-                <div class="mx-2">
-                    <div class="card position-relative team my-2">
-                        <img src="{{asset('/clientSideAssets/images/designer.gif')}}" class="card-img" alt="Sample Image" />
-                        <div class="card-img-overlay pb-4 ms-2">
-                            <div class="card-img-overlay-text pb-2">
-                                <p class="card-text m-0">Alfred Augusta</p>
-                                <div>
-                                    <small class="card-text">New York, US</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
+
 
 <!-- Destination Section -->
 

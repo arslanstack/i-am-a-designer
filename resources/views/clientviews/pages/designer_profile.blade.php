@@ -4,42 +4,31 @@
 <script src="{{asset('/clientSideAssets/masonary/js/modernizr.custom.js')}}"></script>
 <script src="{{asset('/clientSideAssets/jquery/jquery-3.7.1.min.js')}}"></script>
 @endpush
+<style>
+    .definition {
+        font-size: 16px;
+        margin-left: 12px;
+        color: #9C8A4A;
+    }
+</style>
 @section('content')
-<!-- <div class="container pt-3 pb-0">
-    <div class="col-lg-6 col-12 mx-auto">
-        <div class="py-2  justify-content-center  text-center">
-            <div class="profile m-auto">
-                <img src="{{asset('uploads/designers/images/' . $designer->image)}}" alt="" />
-            </div>
-            <div class="mx-3 profile-text">
-                <h1 class="m-0 pt-2">{{$designer->name}}</h1>
-                <p class="text-muted m-0" style="font-size: 20px;">{{$designer->city ? $designer->city . ', ' : ''}} {{$designer->country ?? ''}}</p>
-                
-            </div>
-        </div>
-    </div>
-</div> -->
 
-<div class="col-lg-10 mx-auto">
+<div class="col-lg-10 mx-auto" style=" margin-bottom: 6rem;">
     <div class="designer-cover">
         <img src="{{$designer->cover_image != 'cover.png' ? asset('uploads/designers/images/' . $designer->cover_image) : 'https://framerusercontent.com/images/MSOY9fWwJ1EQeK4PRTFyHCPx4.jpg'}}" style="object-fit: cover; width: 100%; height: 100%;" alt="">
     </div>
     <div class="container">
         <div>
             <div class="profile">
-                <img src="{{asset('uploads/designers/images/' . $designer->image)}}" alt="" />
+                <img src="{{$designer->image != 'avatar.png' ? asset('uploads/designers/images/' . $designer->image) : asset('uploads/user.png')}}" alt="" />
             </div>
-
-
-
         </div>
         <div class="row">
             <div class="col-lg-9">
 
                 <div class="m-3 profile-text">
-                    <h1 class="m-0">{{$designer->name}}</h1>
-
-                    <p class="text-muted m-0 location" style="font-size: 16px !important;">{{$designer->city ? $designer->city . ', ' : ''}} {{$designer->country ?? ''}}</p>
+                    <h1 class="m-0">{{$designer->name}}@if($designer->definition)<small class="definition">I am a {{$designer->definition}} designer</small>@endif</h1>
+                    @if($designer->city || $designer->country)<p class="text-muted m-0 location" style="font-size: 16px !important;">{{$designer->city ? $designer->city . ', ' : ''}} {{$designer->country ?? ''}}</p>@endif
                     <p class="text-black mt-2" style="font-size: 18px !important;">{{$designer->bio}}</p>
 
                 </div>
@@ -83,7 +72,7 @@
     </div>
 
     <!-- Tabs -->
-    <div class="container mt-3">
+    <div class="container-fluid mt-3 ">
         <!-- Tab Navigation Buttons -->
         <ul class="nav nav-tabs justify-content-center border-0" id="myTab" role="tablist">
 
@@ -108,17 +97,31 @@
         <div class="tab-content mt-3" id="myTabContent">
             <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
 
-                <div class="col-lg-12 mx-auto pt-3 pb-5">
-                    <video id="my-video" class="video-js" controls preload="auto" data-setup='' loop>
-                        <source src="{{asset('uploads/designers/intros/' . $designer->introVideo)}}" type='video/mp4'>
-                    </video>
-                    <p class="my-4" style="text-align: justify;">
-                        {{$designer->about}}
-                    </p>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto pt-3 pb-5 ">
+                        <h5>About The Designer</h5>
+
+                        <p class="my-4" style="text-align: justify;">
+                            {{$designer->about}} lorem*20
+                        </p>
+                        @if($designer->introVideo)
+                        <video id="my-video" class="video-js" controls preload="auto" data-setup='' loop>
+                            <source src="{{asset('uploads/designers/intros/' . $designer->introVideo)}}" type='video/mp4'>
+                        </video>
+                        @endif
+                    </div>
+                    <div class="col-lg-4 mx-auto pt-3 pb-5">
+                        <h5>Categories</h5>
+                        <div class="d-flex flex-wrap">
+                            @foreach($designer->categories as $category)
+                            <a href="#"><span class="badge bg-light text-dark m-1">{{$category->slug}}</span></a>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
 
             </div>
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="container">
                     <ul class="grid effect-1" id="grid">
                         @foreach($projects as $project)
@@ -161,14 +164,13 @@
         viewportFactor: 0.2,
     });
     document.addEventListener("DOMContentLoaded", function() {
+
         var grid = document.querySelector(".grid");
         var masonry = new Masonry(grid, {
             itemSelector: ".grid-item",
             columnWidth: ".grid-sizer",
             gutter: 20,
         });
-
-
         var urlParams = new URLSearchParams(window.location.search);
         var tabParam = urlParams.get('tab');
 
@@ -183,7 +185,6 @@
             // document.getElementById(tabId).show();
         }
     });
-
     $(document).ready(function() {
         setTimeout(() => {
             $.ajax({

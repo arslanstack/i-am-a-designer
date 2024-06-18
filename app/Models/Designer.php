@@ -39,6 +39,7 @@ class Designer extends Authenticatable implements MustVerifyEmail
         'premium',
         'remember_token',
         'verification_token',
+        'definition'
     ];
 
     /**
@@ -76,5 +77,10 @@ class Designer extends Authenticatable implements MustVerifyEmail
     public function projects()
     {
         return $this->hasMany(Project::class, 'designer_id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'designer_categories', 'designer_id', 'category_id');
     }
 }

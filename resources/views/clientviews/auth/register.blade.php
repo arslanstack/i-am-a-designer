@@ -14,6 +14,7 @@
                     </div>
                     <div class="text-center">
                         <h3>Register</h3>
+                        <p><small>Register to access client dashboard and save portfolios or manage your profile.</small></p>
                     </div>
 
                     @if(session()->has('errors'))

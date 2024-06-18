@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Designer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Designer;
+use App\Models\DesignerCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -58,7 +60,17 @@ class DesignerGeneralController extends Controller
     public function showProfile()
     {
         $designer = Auth::guard('designer')->user();
-        return view('designer.pages.profile', compact('designer'));
+        $categories = Category::all();
+        $designerCategories = DesignerCategory::where('designer_id', $designer->id)->get();
+        foreach ($categories as $category) {
+            $category->show = "1";
+            foreach ($designerCategories as $designerCategory) {
+                if ($category->id == $designerCategory->category_id) {
+                    $category->show = "2";
+                }
+            }
+        }
+        return view('designer.pages.profile', compact('designer', 'categories'));
     }
     public function updateProfile(Request $request)
     {
@@ -77,9 +89,9 @@ class DesignerGeneralController extends Controller
             'instagram' => 'nullable|url',
             'dribbble' => 'nullable|url',
             'pinterest' => 'nullable|url',
-            'open' => 'required',
         ]);
         if ($validator->fails()) {
+            dd($validator->errors()->all());
             $errorList = '';
             foreach ($validator->errors()->all() as $message) {
                 $errorList .= $message . '<br>';
@@ -99,12 +111,13 @@ class DesignerGeneralController extends Controller
         $designer->city = $request->city ?? null;
         $designer->country = $request->country ?? null;
         $designer->bio = $request->bio ?? null;
+        $designer->definition = $request->definition ?? null;
+        $designer->open = 0;
         $designer->about = $request->about ?? null;
         $designer->facebook = $request->facebook ?? null;
         $designer->instagram = $request->instagram ?? null;
         $designer->dribbble = $request->dribbble ?? null;
         $designer->pinterest = $request->pinterest ?? null;
-        $designer->open = $request->open;
         if ($request->hasFile('image')) {
             if ($designer->image != 'avatar.png') {
                 $image_path = public_path('uploads/designers/images/' . $designer->image);
@@ -154,9 +167,28 @@ class DesignerGeneralController extends Controller
             $introVideo->move(public_path('uploads/designers/intros'), $introVideoName);
             $designer->introVideo = $introVideoName;
         }
+        $categories = Category::all();
+        foreach ($categories as $category) {
+            $category_id = $category->id;
+            $designerCategory = DesignerCategory::where('designer_id', $designer->id)->where('category_id', $category_id)->first();
+            if ($designerCategory) {
+                $designerCategory->delete();
+            }
+            $designer_cats = [];
+            if ($request->has($category->slug)) {
+                array_push($designer_cats, $category_id);
+            }
+            if (count($designer_cats) > 0) {
+                foreach ($designer_cats as $designer_cat) {
+                    $designerCategory = new DesignerCategory();
+                    $designerCategory->designer_id = $designer->id;
+                    $designerCategory->category_id = $designer_cat;
+                    $designerCategory->save();
+                }
+            }
+        }
         $query = $designer->save();
         if ($query) {
-
             return response()->json([
                 'success' => true,
                 'message' => 'Profile updated successfully',
