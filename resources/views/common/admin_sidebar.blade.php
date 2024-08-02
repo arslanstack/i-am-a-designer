@@ -31,10 +31,10 @@
                 <a href="{{ url('admin/designers') }}"><i class="fa fa-user"></i> <span class="nav-label">Designers Management</span></a>
             </li>
             <li class="{{ Request::is('admin/projects') ? 'active' : '' }} {{ Request::is('admin/projects/detail*') ? 'active' : '' }}">
-                <a href="{{ url('admin/projects') }}"><i class="fa fa-archive"></i> <span class="nav-label">Projects Management</span></a>
+                <a href="{{ url('admin/projects') }}"><i class="fa fa-archive"></i> <span class="nav-label">Portfolio Management</span></a>
             </li>
             <li class="{{ Request::is('admin/featured_projects') ? 'active' : '' }} {{ Request::is('admin/featured_projects/detail*') ? 'active' : '' }}">
-                <a href="{{ url('admin/featured_projects') }}"><i class="fa fa-thumb-tack"></i> <span class="nav-label">Featured Projects</span></a>
+                <a href="{{ url('admin/featured_projects') }}"><i class="fa fa-thumb-tack"></i> <span class="nav-label">Featured Portfolios</span></a>
             </li>
         </ul>
     </div>

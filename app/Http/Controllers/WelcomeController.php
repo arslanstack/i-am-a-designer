@@ -8,6 +8,8 @@ use App\Models\Designer;
 use App\Models\Project;
 use App\Models\ProjectSave;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Auth;
 
 class WelcomeController extends Controller
 {
@@ -133,7 +135,6 @@ class WelcomeController extends Controller
         $subject = 'A new contact request from I Am A Designer';
         $emailTemplate = view('emails.contact', compact(['data']))->render();
         $verification = mail("calebjanaltair@gmail.com", $subject, $emailTemplate, $headers);
-
         if ($verification) {
             return response()->json(['status' => 'success', 'msg' => 'Message sent successfully']);
         } else {
@@ -154,5 +155,9 @@ class WelcomeController extends Controller
         $save->save();
 
         return response()->json(['status' => 'success', 'msg' => 'Project saved successfully']);
+    }
+
+    public function designer_settings(){
+        return view('clientviews.pages.designer-settings');
     }
 }

@@ -4,13 +4,13 @@
 @section('content')
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-8 col-sm-8 col-xs-8">
-        <h2> Featured Projects </h2>
+        <h2> Featured Portfolios </h2>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="{{ url('admin') }}">Dashboard</a>
             </li>
             <li class="breadcrumb-item active">
-                <strong> Featured Projects </strong>
+                <strong> Featured Portfolios </strong>
             </li>
         </ol>
     </div>

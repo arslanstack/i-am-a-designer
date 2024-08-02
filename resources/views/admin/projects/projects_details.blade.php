@@ -15,13 +15,13 @@
 @section('content')
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-8 col-sm-8 col-xs-8">
-        <h2> Project Details </h2>
+        <h2> Portfolio Details </h2>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="{{ url('admin') }}">Dashboard</a>
             </li>
             <li class="breadcrumb-item active">
-                <strong> Project Details </strong>
+                <strong> Portfolio Details </strong>
             </li>
         </ol>
     </div>
@@ -39,8 +39,8 @@
                     <div class="col-md-12">
                         <div class="ibox">
                             <div class="ibox-title" style="border: none !important;">
-                                <h5>Project Details</h5>
-                                <span class="float-end float-right"><a href="{{ route('project', [$designer->username, $project->slug]) }}" target="_blank">View Project Perview <i class="fa fa-external-link"></i></a></span>
+                                <h5>Portfolio Details</h5>
+                                <span class="float-end float-right"><a href="{{ route('project', [$designer->username, $project->slug]) }}" target="_blank">View Portfolio Perview <i class="fa fa-external-link"></i></a></span>
                             </div>
                             <div class="ibox-content">
                                 <div class="row">
@@ -150,7 +150,7 @@
                         <div class="col-md-12">
                             <div class="ibox">
                                 <div class="ibox-title" style="border: none !important;">
-                                    <h5>Other Projects</h5>
+                                    <h5>Other Portfolios</h5>
                                 </div>
                                 <div class="ibox-content">
                                     <!-- cards -->

@@ -75,8 +75,9 @@
                         <div class="card-img-overlay pb-4 ms-2">
                             <div class="card-img-overlay-text pb-2">
                                 <p class="card-text m-0">Dan Mall</p>
+                                <p class="text-white card-text mt-2"><small>London, UK</small></p>
                                 <div>
-                                    <small class="card-text">London, UK</small>
+                                    <small class="card-text">I am a jewelry designer</small>
                                 </div>
                             </div>
                         </div>
@@ -90,8 +91,9 @@
                         <div class="card-img-overlay pb-4 ms-2">
                             <div class="card-img-overlay-text pb-2">
                                 <p class="card-text m-0">Walt Disney</p>
+                                <p class="text-white card-text mt-2"><small class="card-text">Texas, US</small></p>
                                 <div>
-                                    <small class="card-text">Texas, US</small>
+                                    <small class="card-text">I am an abstract designer</small>
                                 </div>
                             </div>
                         </div>
@@ -105,8 +107,9 @@
                         <div class="card-img-overlay pb-4 ms-2">
                             <div class="card-img-overlay-text pb-2">
                                 <p class="card-text m-0">Elsa Chinto</p>
+                                <p class="text-white card-text mt-2"><small class="card-text">Tengah, Singapore</small></p>
                                 <div>
-                                    <small class="card-text">Tengah, Singapore</small>
+                                    <small class="card-text">I am a fashion designer</small>
                                 </div>
                             </div>
                         </div>
@@ -120,8 +123,10 @@
                         <div class="card-img-overlay pb-4 ms-2">
                             <div class="card-img-overlay-text pb-2">
                                 <p class="card-text m-0">Molda Banki</p>
+                                <p class="text-white card-text mt-2"> <small class="card-text">Tokyo, Japan</small>
+                                </p>
                                 <div>
-                                    <small class="card-text">Tokyo, Japan</small>
+                                    <small class="card-text">I am an interior designer</small>
                                 </div>
                             </div>
                         </div>
@@ -135,9 +140,9 @@
                         <div class="card-img-overlay pb-4 ms-2">
                             <div class="card-img-overlay-text pb-2">
                                 <p class="card-text m-0">Alfred Augusta</p>
-                                <div class="badge text-dark">I am a designer</div>
+                                <p class="text-white card-text mt-2"><small class="card-text">New York, US</small></p>
                                 <div>
-                                    <small class="card-text">New York, US</small>
+                                    <small class="card-text">I am a graphics designer</small>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +158,7 @@
 <div class="container py-4">
     <div class="section-heading text-center pt-4">
         <h1>Explore, Connect & Create</h1>
-        <p class="py-2" style="font-size: 20px;">Express your individuality with wearable works of art.</p>
+        <p class="py-2" style="font-size: 20px;">Express your individuality with exquisite works of art.</p>
     </div>
 </div>
 
@@ -172,7 +177,7 @@
 <div class="container py-5">
     <div class="section-heading text-center pb-3">
         <h1>Explore Designs That Inspire</h1>
-        <p class="py-2" style="font-size: 20px;">Discover the elegance of creative expression, crafted in precious metals and stones.</p>
+        <p class="py-2" style="font-size: 20px;">Discover the elegance of creative expression, crafted with love and care.</p>
     </div>
     <div class="row">
         @foreach($projects as $item)

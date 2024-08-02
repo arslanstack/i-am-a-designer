@@ -33,11 +33,11 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Manage Projects</h4>
+            <h4 class="mb-sm-0">Manage Portfolios</h4>
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{route('designer.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Manage Projects</li>
+                    <li class="breadcrumb-item active">Manage Portfolios</li>
                 </ol>
             </div>
         </div>
@@ -50,9 +50,9 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header d-flex align-items-center">
-                <h5 class="card-title mb-0 flex-grow-1">Your Projects</h5>
+                <h5 class="card-title mb-0 flex-grow-1">Your Portfolios</h5>
                 <div>
-                    <a id="addRow" href="{{route('designer.add-projects')}}" class="btn btn-sm btn-primary"><i data-feather="plus-circle"></i> Add New Project</a>
+                    <a id="addRow" href="{{route('designer.add-projects')}}" class="btn btn-sm btn-primary"><i data-feather="plus-circle"></i> Add New Portfolio</a>
                 </div>
             </div>
             <div class="card-body" style="overflow-x:auto;">

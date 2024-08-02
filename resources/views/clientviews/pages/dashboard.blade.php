@@ -31,10 +31,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> <!-- end card-body-->
+                        </div>
                     </div>
-                </div> <!-- end col-->
-            </div> <!-- end row-->
+                </div>
+            </div>
             @endif
         </div>
     </div>

@@ -72,6 +72,21 @@ class DesignerGeneralController extends Controller
         }
         return view('designer.pages.profile', compact('designer', 'categories'));
     }
+    public function ProfileSettings()
+    {
+        $designer = Auth::guard('designer')->user();
+        $categories = Category::all();
+        $designerCategories = DesignerCategory::where('designer_id', $designer->id)->get();
+        foreach ($categories as $category) {
+            $category->show = "1";
+            foreach ($designerCategories as $designerCategory) {
+                if ($category->id == $designerCategory->category_id) {
+                    $category->show = "2";
+                }
+            }
+        }
+        return view('designer.pages.profile-settings', compact('designer', 'categories'));
+    }
     public function updateProfile(Request $request)
     {
         $validator = Validator::make($request->all(), [

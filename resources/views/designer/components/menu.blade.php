@@ -30,7 +30,7 @@
                     <a href="{{route('designer.profile')}}" class="nav-link menu-link {{ Request::is('designer/profile') ? 'active' : '' }}"><i class="ri-user-2-line"></i> <span>Profile Settings</span> </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('designer.projects')}}" class="nav-link menu-link {{ Request::is('designer/projects') ? 'active' : '' }} {{ Request::is('designer/projects/*') ? 'active' : '' }}"><i class="ri-slideshow-line"></i> <span>Manage Projects</span> </a>
+                    <a href="{{route('designer.projects')}}" class="nav-link menu-link {{ Request::is('designer/projects') ? 'active' : '' }} {{ Request::is('designer/projects/*') ? 'active' : '' }}"><i class="ri-slideshow-line"></i> <span>Manage Portfolios</span> </a>
                 </li>
                 @else
                 <li class="nav-item">

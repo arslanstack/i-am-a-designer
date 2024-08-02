@@ -7,12 +7,12 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-            <h4 class="mb-sm-0">Add New Project</h4>
+            <h4 class="mb-sm-0">Add New Portfolio</h4>
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="{{route('designer.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{route('designer.projects')}}">Manage Projects</a></li>
-                    <li class="breadcrumb-item active">Add New Project</li>
+                    <li class="breadcrumb-item"><a href="{{route('designer.projects')}}">Manage Portfolio</a></li>
+                    <li class="breadcrumb-item active">Add New Portfolio</li>
                 </ol>
             </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="card mt-xxl-n5">
                 <div class="card-header d-flex align-items-center">
                     <h5 class="card-title mb-0 flex-grow-1">
-                        Add Project Details
+                        Add Portfolio Details
                     </h5>
                     <div>
                         <a id="addRow" href="{{route('designer.projects')}}" class="btn btn-primary btn-sm"><i data-feather="arrow-left"></i> Go Back</a>
@@ -38,7 +38,7 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <label for="firstnameInput" class="form-label">
-                                            Project Title</label>
+                                            Portfolio Title</label>
                                         <input type="text" class="form-control" name="title" required placeholder="22' Fade Shade Collection">
                                     </div>
                                 </div>

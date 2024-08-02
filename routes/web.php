@@ -25,6 +25,7 @@ Route::post('/saveProject', [WelcomeController::class, 'saveProject'])->name('sa
 Route::get('/privacy-policy', [WelcomeController::class, 'privacy'])->name('privacy');
 Route::post('/increment_view', [WelcomeController::class, 'increment_viewcount'])->name('increment_viewcount');
 Route::get('/designer-profile/{username}', [WelcomeController::class, 'designer_profile'])->name('designer_profile');
+Route::get('/designer-settings', [WelcomeController::class, 'designer_settings'])->name('designer_settings');
 Route::get('/project/{username}/{slug}', [WelcomeController::class, 'project'])->name('project');
 
 Route::group(['prefix' => 'admin'], function () {
